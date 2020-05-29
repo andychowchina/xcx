@@ -1,0 +1,26 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+
+<icon class='back iconfont icon-fanhui 'bindtap='navBack'></icon>
+    <view class='nav-title'>
+        爱服务
+    </view>
+  </view>
+  <view style='margin-top:{{navH+5}}px;'>
+<view class='serchTopics'>
+  <icon class='iconfont icon-search'></icon>
+  <input type='text' confirm-type='search' bindconfirm='getTopics'></input>
+</view>
+<view class='topicsList' style='height:{{scrH-65}}px'>
+  <block wx:for="{{topics}}" wx-item="item" wx:index="index">
+    <view class='topics' data-num='{{index}}' bindtap='selectTopics'>
+      <view class='topicsImg'><image src='{{item.IMG_URL}}' mode='aspectFit'></image></view>
+      <view class='topicsContent'>
+        <view class='topicsTitle'>{{item.TITLE}}</view>
+         <view class='topicsIntro'>{{item.CONTENT}}</view>
+         <view class='topicsIntro' wx:if="{{item.PARTAKE>0}}">讨论数{{item.PARTAKE}}</view>
+      </view>
+    </view>
+  </block>
+  <view  class='showMore' wx-if="{{showMore||finishShow}}">{{finishShow?"已加载全部":"正在加载"}}</view> 
+</view>
+</view>

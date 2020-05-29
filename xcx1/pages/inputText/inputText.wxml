@@ -1,0 +1,12 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+<icon class='back iconfont icon-fanhui 'bindtap='navBack'></icon>
+    <view class='nav-title'>
+        爱服务
+    </view>
+  </view>
+<view class='publish_input_title' style='margin-top:{{navH}}px'><view class='cancel' bindtap='cancel'>取消</view><text>输入文字 </text><view class='submit {{inputNumber>0?"action":""}}' bindtap='{{inputNumber>0?"submit":""}}'>完成</view></view>
+<view class='inputText'>
+  <textarea placeholder='请输入内容' maxlength="{{maxLength}}" bindinput='inputText' value='{{inputValue}}'></textarea>
+</view>
+<view class='number'><text>{{inputNumber}}</text>/{{maxLength}}</view>
+

@@ -1,0 +1,84 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="questionpage" style='margin-top:{{navH+10}}px'>
+  <view class='inputQuestionTitle'>
+    <view class='select-query iconfont icon-sousuo' bindtap='jumpQuiz'></view>
+    <view class='questionBox'>
+      <input placeholder='搜索' type='text' bindinput='question' confirm-type='search' maxlength='180' value='{{question}}'></input>
+    </view>
+    <view class='select-empty iconfont icon-shanchu' wx:if="{{!!question}}" bindtap='handleEmpty'></view>
+    <!-- <view class='submit' bindtap='jumpQuiz'>下一步</view> -->
+  </view>
+</view>
+<view class='gq' style='margin-top:10px'></view>
+<view class='questionList'>
+  <view class='questionListTitle'>问答</view>
+  <block wx:for="{{questionList}}" wx:for-item="item" wx:key="key">
+    <view class='questionList_text' bindtap='bindToDetail' data-Id='{{item.ID}}'>
+      <view>
+        <image class='Headportrait' src="{{item.HEAD_SCULPTURE}}"></image>
+      </view>
+      <view class='questionList_box'>
+        <text class='questionList_title' wx:for="{{item.TITLE}}" wx:for-item="ite" class="{{ite.red?'red':''}}">{{ite.text}}</text>
+        <view class='questionList_info'>
+          <label>{{item.COMMENT_NUMBER}}回答</label>
+          <!-- <label style='margin-left: 5px;'>{{item.CLLECT_NUMBER}}收藏</label> -->
+        </view>
+      </view>
+    </view>
+  </block>
+  <view wx:if='{{questionList.length<=0}}' style="color:#333;font-size: 24rpx;text-align: center;padding:10rpx 0;">暂无相关内容</view>
+  <view class='moreContent' bindtap="wdMore">更多搜索结果</view>
+</view>
+<view class='gq'></view>
+<view class='counselList'>
+  <view class='questionListTitle'>咨讯</view>
+  <block wx:for="{{courselLists}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+    <view class='counselList_text wepay' bindtap='bindTocourselDetail' data-Id='{{item.pk}}' data-url='{{item.domain}}'>
+      <view class='counselList_box'>
+        <view class='questionList_title'>
+          <text wx:for="{{item.title}}" wx:for-item="ite" class="{{ite.red?'red':''}}">{{ite.text}}</text>
+        </view>
+        <view class='questionList_info'>
+          <label>
+            <text style="margin-right:15rpx;">{{item.resources}}</text>
+            <text>{{item.addTime}}</text>
+          </label>
+        </view>
+      </view>
+      <view>
+        <image class='counsel_img' src="{{host + item.imageUrl}}"></image>
+      </view>
+    </view>
+  </block>
+  <view wx:if='{{courselLists.length<=0}}' style="color:#333;font-size: 24rpx;text-align: center;padding:10rpx 0;">暂无相关内容</view>
+  <view class='moreContent' bindtap="zxMore">更多搜索结果</view>
+</view>
+<view class='gq'></view>
+<view class='serviceList'>
+  <view class='questionListTitle'>服务</view>
+  <view wx:for="{{smallService}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+    <view class="ServiceItem">
+      <view class="hotBooks-left__image">
+        <image src="{{host}}{{item.IMGURL}}" mode='aspectFit'></image>
+      </view>
+      <view class="hotBooks-right">
+        <view bindtap='{{selectServeice=="true"?"selectServeice":"goServiceInfo"}}' data-serviceid="{{item.ID}}" data-serviceimg="{{serviceManagerUrl}}{{item.IMGURL}}" data-servicename="{{item.SMALL_NAME}}" data-servicenum="{{item.WX_RESERVATION_NUM}}" data-fwsid="{{item.FWS_ID}}"
+          class='serviceInfo'>
+          <view class='hotBooks_title' style="color:#333;">
+            <view class="serviceName">
+              <text wx:for="{{item.SMALL_NAME}}" wx:for-item="ite" class="{{ite.red?'red':''}}">{{ite.text}}</text>
+            </view>
+            <view class='coop_name' catchtap='goDianPu' data-fwsid="{{item.FWS_ID}}">{{item.FWS_NAME}}</view>
+          </view>
+          <view class="detailS" catchtap="goServiceInfo" data-serviceid="{{item.ID}}" data-serviceimg="{{host}}{{item.IMGURL}}" data-servicename="{{item.SMALL_NAME}}" data-servicenum="{{item.WX_RESERVATION_NUM}}" data-fwsid="{{item.FWS_ID}}">
+            <text>{{item.WX_RESERVATION_NUM?item.WX_RESERVATION_NUM:0}}人预约</text>
+            <icon class='iconfont icon-iconfontjiantou4'></icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{smallService.length<=0}}' style="color:#333;font-size: 24rpx;text-align: center;padding:10rpx 0;">暂无相关内容</view>
+  <view class='moreContent' bindtap="fwMore">更多搜索结果</view>
+</view>

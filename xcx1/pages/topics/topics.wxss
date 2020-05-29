@@ -1,0 +1,10 @@
+@import "../../app.wxss";
+page{background-color:#eee}
+.serchTopics{background-color:#fff;margin:5px auto;width:90%;border-radius:5px;display:flex;line-height:75rpx;height:75rpx;padding:0rpx 10rpx}.serchTopics icon{line-height:45rpx}
+.serchTopics input{height:75rpx;width:100%;margin-left:15rpx}
+.topicsList{background-color:#fff;margin-top:50rpx;padding:10rpx}
+.topics{display:flex;border-bottom:1px solid #eee}
+.topicsImg image{width:125rpx;height:125rpx}.topicsTitle{font-size:36rpx;padding:10rpx 0rpx 10rpx 20rpx}
+.topicsIntro{color:#999;font-size:28rpx;padding:10rpx 0rpx 10rpx 20rpx}
+.topicsIntro text:last-child{margin-left:10rpx;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;height:30px}
+.showMore{text-align:center;padding:20rpx 0;font-size:26rpx}

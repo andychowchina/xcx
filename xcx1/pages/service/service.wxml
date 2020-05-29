@@ -1,0 +1,56 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    爱服务
+  </view>
+</view>
+<view class="guess-titleAll" style='top:{{navH}}px'>
+  <view class='search'>
+    <view class='guess-titleAll_selectInput'>
+      <!-- {{isHide==false?'':'hiden'}} -->
+      <input class="" placeholder="搜索服务" bindinput='searchService' value='{{searchKeyword}}'></input>
+    </view>
+    <view class='guess-titleAll_selectQuery iconfont icon-search' bindtap='keywordSearch'>
+    </view>
+  </view>
+</view>
+<view class="servicepage">
+  <view class="recommendFY">
+
+    <view class="hotBooks-lists " style='margin-top:{{navH}}px;'>
+      <!--左侧产品类别-->
+      <scroll-view wx:if="{{bigService.length>0}}" class="fwTypeList {{ismenuHide==false?'':'hiden'}}" scroll-y="true">
+        <view wx:for="{{bigService}}" wx:for-item="big" wx:key="key">
+          <view wx:if="{{big.JS == 1}}" class='fwTypeitem {{isActive==big.ID?"active":""}}' bindtap='getServiceByBid' data-bigId="{{big.ID}}" data-name="{{big.NAME}}">{{big.NAME}}</view>
+        </view>
+      </scroll-view>
+
+      <!--右侧服务列表 bindscrolltolower="searchScrollLower"-->
+      <scroll-view class='fwList' scroll-y="true" bindscrolltolower="searchScrollLower" style=' padding-bottom:{{navH+90}}px;'>
+        <view wx:for="{{smallService}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+          <view class="item">
+            <text class='serviceType' wx:if='{{item.SERVICE_TYPE==0}}'>标</text>
+            <view class="hotBooks-left__image">
+              <image src="{{serviceManagerUrl}}{{item.IMGURL}}" style="border-radius: 15rpx;width: 120rpx;height: 120rpx;" mode='aspectFit'></image>
+            </view>
+            <view class="hotBooks-right">
+              <view bindtap='{{selectServeice=="true"?"selectServeice":"goServiceInfo"}}' data-serviceid="{{item.ID}}" data-serviceimg="{{serviceManagerUrl}}{{item.IMGURL}}" data-servicename="{{item.SMALL_NAME}}" data-servicenum="{{item.WX_RESERVATION_NUM}}" data-fwsid="{{item.FWS_ID}}" class='serviceInfo'>
+                <view class='hotBooks__title' style="color:#333;">
+                  <view class='serviceName'>{{item.SMALL_NAME}}</view>
+                  <view class='coop_name' catchtap='goDianPu' data-fwsid="{{item.FWS_ID}}">{{item.FWS_NAME}}</view>
+                </view>
+                <view class="detailS">
+                  <view class='iconfont'>{{item.WX_RESERVATION_NUM?item.WX_RESERVATION_NUM:0}}人预约</view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+        <view class="loading {{searchLoading?'':'hide'}}">正在加载...</view>
+        <view class="loading complete {{!searchLoadingComplete?'hide':''}}">已加载全部</view>
+      </scroll-view>
+
+    </view>
+  </view>
+</view>
+<buttomMenu id="buttomMenu" isSelect="1"></buttomMenu>

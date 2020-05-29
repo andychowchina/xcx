@@ -1,0 +1,28 @@
+@import "../index/index.wxss";
+@import "../../app.wxss";
+.question_content_title{font-weight: bold;padding:20rpx 60rpx;}
+.info{margin: 20rpx 0rpx;}
+.headPhoto{width: 20%}
+.NickName{width: 40%;font-size: 16px;padding-top: 10rpx;padding-left:40rpx;
+}
+.InfoDate{width: 40%;text-align: right;font-size: 12px;padding-top: 15rpx;color:#999999; }
+.fwal_content_text{margin: 20rpx 0rpx;}
+.question_content_function{border-top:1px solid #eeeeee; border-bottom:1px solid #eeeeee; }
+.question_content_function button{line-height:0px;font-size:14px;outline:0 none;display:inline; color: #ffffff;}
+.question_content_function .text{color: #999999;font-size:14px}
+.question_content_follow,.question_content_hotQuestion{display: flex; margin: 40rpx 60rpx;}
+.question_content_follow view{width: 50%;}
+.question_content_follow .button{text-align: right;padding: 0rpx 20rpx;}
+.question_content_follow button{background:#0099FF ;padding: 5px;}
+.question_content_hotQuestion view{width: 50%;}
+.question_content_hotQuestion .button{text-align: right;padding: 0rpx 20rpx;}
+.question_content_hotQuestion button{background:#FF6633 ;padding: 5px;}
+
+.content_function view{width: 33%;}
+
+.bottom_tab{border-top:1px solid #eeeeee;}
+.bottom_tab .flex-wrp .flex-item{width: 50%;}
+.bottom_tab image{width: 15px;height: 15px;margin-right: 15px;}
+.bottom_tab button{background:transparent;line-height:0px;outline:0 none;display:inline;padding: 0px;}
+button::after {border: none;border-radius:0;}
+

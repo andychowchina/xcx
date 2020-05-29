@@ -1,0 +1,135 @@
+<import src="temp.wxml" />
+<view class='nav bg-white' style='height:{{navH}}px'>
+	<view class='nav-title'>
+		爱服务
+	</view>
+</view>
+<view class='top_banner' style='top:{{navH}}px' id='top_banner'>
+	<view class='top_serch' bindtap="switchService">
+		<view class='guess-titleAll_selectQuery iconfont icon-search' bindtap='keywordSearch'>
+		</view>
+		<view class='guess-titleAll_selectInput'>
+			<!-- {{isHide==false?'':'hiden'}} -->
+			<input class="" placeholder="搜索" bindinput='searchService'></input>
+		</view>
+	</view>
+	<view class='banner_image'>
+		<swiper indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{swiperList}}" wx:key="index">
+				<swiper-item>
+					<image src="{{host + item.IMG_URL}}" class="slide-image" data-url="{{item.URL}}" mode='scaleToFill' bindtap="swiperJumpUrl" />
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class='top_tab'>
+		<view class="flex-wrp" style="flex-direction:row;">
+			<view class="flex-item"></view>
+			<view class="flex-item {{crrentTabsIndex == ''?'active':''}}" data-current="" bindtap='swichNav'>
+				<text bindtap='swichNav' data-current="">推荐</text>
+			</view>
+			<!-- <view class="flex-item {{crrentTabsIndex == '1'?'active':''}}" data-current="1" bindtap='swichNav'>动态</view> -->
+			<view class="flex-item {{crrentTabsIndex == '4'?'active':''}}" data-current="4" bindtap='swichNav'>
+				<text bindtap='swichNav' data-current="4">问答</text>
+			</view>
+			<!-- <view class="flex-item {{crrentTabsIndex == '2'?'active':''}}" data-current="2" bindtap='swichNav'>活动</view> -->
+			<view class="flex-item {{crrentTabsIndex == '5'?'active':''}}" data-current="5" bindtap='swichNav'>
+				<text bindtap='swichNav' data-current="5">文章</text>
+			</view>
+			<view class="flex-item"></view>
+		</view>
+	</view>
+</view>
+
+
+<!--首页推荐内容-->
+<view class='content' style='margin-top:{{realHight}}px'>
+	<scroll-view>
+		<block wx:if="{{inforClassId == '4'}}">
+			<view class="second-header">
+				<view class='classfy' bindtap='putQuestion' data-type='4'>
+					<image src='../image/request.png'></image>
+					<view>我要提问</view>
+				</view>
+				<view class='classfy' bindtap='request_test' data-type='4'>
+					<image src='../image/question.png'></image>
+					<view>等你来答</view>
+				</view>
+				<!-- <view class='classfy' bindtap='themeClassify' style='border:none;'>
+          <image src='../image/classify.png' style='margin-left:-120rpx;'></image>
+          <view>答题分类</view>
+        </view> -->
+			</view>
+		</block>
+		<block wx:for="{{dtList}}" wx:key="index">
+			<block wx:if="{{item.classId == '1'}}">
+				<!--动态内容-->
+				<!-- <template is="dt" data="{{item:item,index:index,useCode:useCode,functionList:functionList}}" /> -->
+				<template is="dt" data="{{item:item,index:index,useCode:useCode,functionList:functionList}}" />
+			</block>
+			<block wx:if="{{item.classId == '2'}}">
+				<!--活动内容-->
+				<template is="hd" data="{{item:item,index:index,functionList:functionList}}" />
+			</block>
+			<block wx:if="{{item.classId == '3'}}">
+				<!--服务案例内容-->
+				<template is="fwal" data="{{item:item,index:index,functionList:functionList}}" />
+			</block>
+			<block wx:if="{{item.classId == '4'}}">
+				<!--问答内容-->
+				<template is="qywt" data="{{item:item,index:index,useCode:useCode,functionList:functionList,host:host}}" />
+			</block>
+			<block wx:if="{{item.classId == '5'}}">
+				<!--资讯内容-->
+				<template is="zy" data="{{item:item,index:index,host:host}}" />
+			</block>
+		</block>
+	</scroll-view>
+	<view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+	<view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+</view>
+<!-- 弹出评论框 -->
+<view wx:if="{{hideModal}}">
+	<cover-view>
+		<view class="shadowModal"></view>
+		<view class="commentModal bottom-pos" animation="{{animationData}}">
+			<view class="tipsModal">
+				<text class="closeModal" bindtap="hideCommBox">X</text>
+				<text class="titleModal">2条评论</text>
+			</view>
+			<view class="contentModal">
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+				<view>111</view>
+				<view>222</view>
+				<view>333</view>
+			</view>
+			<view class="buttomModal">
+				<image src="../image/photo.jpg"></image>
+				<text class="inputModal">请输入评论</text>
+				<text class="inputSmile">🙃</text>
+			</view>
+		</view>
+	</cover-view>
+</view>
+<!-- 弹出评论框结束 -->
+<buttomMenu id="buttomMenu" isSelect="0"></buttomMenu>

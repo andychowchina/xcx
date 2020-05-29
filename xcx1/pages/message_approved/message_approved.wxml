@@ -1,0 +1,33 @@
+<!--头部输入问题标题-->
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="questionpage" style='margin-top:{{navH}}px'>
+  <view class='questionList' style='margin-top:{{navH}}px'>
+    <scroll-view wx:if="{{myMessageList.length>0}}" style="width: 100%;">
+      <view class="message_title">{{message}}</view>
+      <block wx:for="{{myMessageList}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+        <view class='questionList_text' data-infoId="{{item.INFO_ID||item.INFORMATION_ID}}" data-showMessageId="{{message=='赞同'?item.M_ID:item.ID}}" data-plid="{{item.PL_ID}}" bindtap='bindToDetail'>
+        <!-- <view class='questionList_text' data-infoId="{{item.INFO_ID||item.INFORMATION_ID}}" data-showMessageId="{{message=='赞同'?item.PL_ID:item.INFO_ID}}" data-plid="{{item.PL_ID}}" bindtap='bindToDetail'> -->
+          <view>
+            <image class='Headportrait' src="{{item.HEAD_SCULPTURE}}"></image>
+            <view class="message" wx:if="{{item.YDZT==0}}"></view>
+          </view>
+          
+          <view class='questionList_box'>
+            <text class='questionList_info' wx:if="{{message!='评论'}}">{{item.NICKNAME}}{{message}}了你{{message=="赞同"?'的':""}}{{message=="赞同"?item.TYPE:""}}</text>
+            <text class='questionList_info' wx:if="{{message=='评论'}}">{{item.NICKNAME}}{{item.TYPE}}了你</text>
+            <text class='questionList_title'>{{item.CONTENT}}</text>
+            <view class='questionList_info'>
+              <label>{{item.CREATE_TIME}}</label>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+    <scroll-view wx:else>
+      <view class="hotBooks__title" style="color:#333;font-size: 30rpx;text-align: center;">暂无相关内容</view>
+    </scroll-view>
+  </view>
+</view>

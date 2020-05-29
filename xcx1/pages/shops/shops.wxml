@@ -1,0 +1,57 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+
+<!-- <view class='nav bg-white' style='height:{{navH}}px'>
+  <icon class='back iconfont icon-fanhui ' bindtap='navBack'></icon>
+  <view class='nav-title'>
+    爱服务企业圈
+  </view>
+</view> -->
+<view class='shopContent' style='top:{{navH}}px'>
+  <view class='shopsInfo' wx:if="{{dianpuInfo.length>0}}">
+    <view class='shopsImage'>
+      <image src='{{serviceManagerUrl}}{{dianpuInfo[0].COOP_IMG}}' mode='aspectFit'></image>
+    </view>
+    <view class='shopsInfo_text'>
+      <view>
+        <label>商铺名称：</label>
+        <text>{{dianpuInfo[0].CUST_NAME}}</text>
+      </view>
+      <view>
+        <label>商铺联系方式：</label>
+        <text>{{dianpuInfo[0].LINKNAME_TEL}}</text>
+      </view>
+      <view>
+        <label>商铺地址：</label>
+        <text>{{dianpuInfo[0].ADDRESS}}</text>
+      </view>
+    </view>
+
+  </view>
+  <view class='shopsInfo_serviceList'>
+    <view class='shopsInfo_service_title'>全部服务</view>
+    <block wx:for="{{dianpuInfo}}" wx:for-item="dianpu" wx:key="key" wx:for-index="index">
+      <view class='shopsInfo_service_text' wx:if="{{index%2==1}}">
+        <view class='shopsInfo_service' bindtap='serviceInfo' data-serviceId="{{dianpuInfo[index].SMALL_SERVICE_ID}}">
+          <view class='shopsInfo_service_img'>
+            <image src='{{serviceManagerUrl}}{{dianpuInfo[index].SERVICE_IMG}}' mode='aspectFit'></image>
+          </view>
+          <view class='shopsInfo_service_info'>
+            <view>{{dianpuInfo[index].SERVICE_NAME}}</view>
+            <view class='shopsInfo_service_intro'>{{dianpuInfo[index].INTRO}}</view>
+          </view>
+
+        </view>
+        <view class='shopsInfo_service' bindtap='serviceInfo' data-serviceId="{{dianpuInfo[index+1].SMALL_SERVICE_ID}}">
+          <view class='shopsInfo_service_img'>
+            <image src='{{serviceManagerUrl}}{{dianpuInfo[index+1].SERVICE_IMG}}' mode='aspectFit'></image>
+          </view>
+          <view class='shopsInfo_service_info'>
+            <view>{{dianpuInfo[index+1].SERVICE_NAME}}</view>
+            <view class='shopsInfo_service_intro'>{{dianpuInfo[index+1].INTRO}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

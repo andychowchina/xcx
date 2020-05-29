@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "buttomMenu": "../../compoents/buttomMenu/buttomMenu",
+    "txv-video": "plugin://tencentvideo/video"
+  },
+  "navigationStyle": "custom"
+}

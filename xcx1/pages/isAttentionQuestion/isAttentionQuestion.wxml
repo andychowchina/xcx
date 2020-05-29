@@ -1,0 +1,29 @@
+<!--头部输入问题标题-->
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="questionpage" style='margin-top:{{navH}}px'>
+  <view class='questionList' style='margin-top:{{navH}}px'>
+    <scroll-view wx:if="{{myAttation.length>0}}" style="width: 100%;">
+      <block wx:for="{{myAttation}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+        <view class='questionList_text' bindtap='bindToDetail' data-Id='{{item.ID}}'>
+          <view>
+            <image class='Headportrait' src="{{item.HEAD_SCULPTURE}}"></image>
+          </view>
+          <view class='questionList_box'>
+            <text class='questionList_title'>{{item.TITLE}}</text>
+            <view class='questionList_info'>
+              <label>{{item.COMMENT_NUMBER}}回答</label>
+              <!-- <label style='margin-left: 5px;'>{{item.CLLECT_NUMBER}}收藏</label> -->
+            </view>
+          </view>
+          <button class='{{attationList[idx].isAttation==="Y"?"attented":"gz"}}' catchtap='clickHandle' data-index="{{idx}}" data-id='{{item.ID}}' data-type='2'> {{attationList[idx].isAttation==="Y"?"已关注":"关注"}}</button>
+        </view>
+      </block>
+      <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+    <scroll-view wx:else>
+      <view class="hotBooks__title" style="color:#333;font-size: 30rpx;text-align: center;">暂无相关问题</view>
+    </scroll-view>
+  </view>
+</view>

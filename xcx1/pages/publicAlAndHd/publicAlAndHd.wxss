@@ -1,0 +1,19 @@
+@import '../index/index.wxss';
+@import "../../app.wxss";
+@import '../publicDt/publicDt.wxss';
+page{background-color: #eeeeee;}
+.AlandHd_title{display: flex;padding:10px 0px 5px 0px;background-color: #ffffff;}
+.AlandHd_title label{font-weight: bold;width: 20%;text-align: center;font-size: 32rpx;line-height: 20px;}
+.AlandHd_title input{width: 70%; padding: 0px 5px; font-size: 32rpx;}
+
+.AlandHd_text{border-top:1px solid #eeeeee; margin-bottom: 60px;}
+.AlandHd_area{padding: 0px  10px 10px 10px; background-color: #ffffff;margin: 10px 15px; border-radius:10px;  }
+.AlandHd_input{display: flex;}
+.AlandHd_inputImg{width:80px;height:80px; }
+.AlandHd_inputText{width: 70%; padding:0px 10px;font-size: 32rpx;}
+.add{text-align: center;}
+.add label{font-size: 32rpx;}
+.AlandHd_btn{text-align: right;}
+.AlandHd_btn icon{font-size: 25rpx;}
+.addImage{background-color:#eeeeee;width: 100%;height: 100%;text-align: center;line-height: 70px; font-size: 50px;}
+.AlandHd_inputImg image{width:100%;height: 100%}

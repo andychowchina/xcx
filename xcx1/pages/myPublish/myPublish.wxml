@@ -1,0 +1,87 @@
+<import src="../index/temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+
+<view class='userInfo' style='margin-top:{{navH}}px'>
+  <view class='userInfo_bg'>
+    <!-- <image mode="scaleToFill" src='../../image/userInfo_bg.jpg'></image> -->
+    <image mode="scaleToFill" src='https://www.gz12366.com.cn:20366/WeChatSys/picture/userInfo_bg.jpg'></image>
+  </view>
+  <view class='userInfoContent'>
+    <view class='userImage'>
+      <!-- <image src='{{userImage}}' mode="aspectFill"></image> -->
+      <view class='userPhoto'>
+        <image src='{{headImage}}'></image>
+      </view>
+    </view>
+    <view class="user">
+      <view class="userName">{{nickname}}</view>
+      <view class='userBaseInfo'>
+      <view class='userBaseInfo_text'>
+          <view>粉丝<text>{{scNumber}}</text></view>
+        </view>
+        <view class='userBaseInfo_text'>
+          <view>获赞<text>{{zxNumber}}</text></view>
+        </view>
+        <!-- <view class='userBaseInfo_text'>
+          <view>{{zxNumber}}</view>
+          <view>资讯</view>
+        </view> -->
+        <!-- <view class='userBaseInfo_text' bindtap='jumpMyfunction' data-url='../myAttation/myAttation?userid={{attationUserId}}'>
+          <view>{{gzNumber}}</view>
+          <view>关注</view>
+        </view> -->
+        <!-- <view class='userBaseInfo_text' bindtap='jumpMyfunction' data-url='../myCollect/myCollect?userid={{userid}}'>
+          <view>{{scNumber}}</view>
+          <view>收藏</view>
+        </view> -->
+      </view>
+    </view>
+    <view class='userInfoAttation ' wx:if='{{userid!=attationUserId}}'>
+      <button class=' {{isAttention=="true"?"attented":"gz"}}' bindtap='attention' data-coveruserid='{{userid}}'> {{isAttention=="true"?"已关注":"关注"}}</button>
+    </view>
+  </view>
+
+</view>
+
+<!-- <view class='top_tab'>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item {{crrentTabsIndex == ''?'active':''}}" data-current="" bindtap='swichNav'>全部</view>
+    <view class="flex-item {{crrentTabsIndex == '1'?'active':''}}" data-current="1" bindtap='swichNav'>动态</view>
+    <view class="flex-item {{crrentTabsIndex == '2'?'active':''}}" data-current="2" bindtap='swichNav'>活动</view>
+    <view class="flex-item {{crrentTabsIndex == '4'?'active':''}}" data-current="4" bindtap='swichNav'>问答</view>
+    <view class="flex-item {{crrentTabsIndex == '5'?'active':''}}" data-current="5" bindtap='swichNav'>资源</view>
+  </view>
+</view> -->
+<!--首页推荐内容-->
+<view class='content'>
+  <scroll-view>
+
+    <block wx:for="{{dtList}}" wx:key="index">
+      <block wx:if="{{item.classId == '1'}}">
+        <!--动态内容-->
+        <template is="dt" data="{{item:item,index:index,functionList:functionList}}" />
+      </block>
+      <block wx:if="{{item.classId == '2'}}">
+        <!--活动内容-->
+        <template is="hd" data="{{item:item,index:index,functionList:functionList}}" />
+      </block>
+      <block wx:if="{{item.classId == '3'}}">
+        <!--服务案例内容-->
+        <template is="fwal" data="{{item:item,index:index,functionList:functionList}}" />
+      </block>
+      <block wx:if="{{item.classId == '4'}}">
+        <!--问答内容-->
+        <template is="grzy" data="{{item:item,index:index,functionList:functionList}}" />
+      </block>
+      <block wx:if="{{item.classId == '5'}}">
+        {{item.RESOURCE_LINKS}}
+        <!--资源内容-->
+        <template is="zy" data="{{item:item,index:index,functionList:functionList}}" />
+      </block>
+    </block>
+
+  </scroll-view>
+  <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+</view>

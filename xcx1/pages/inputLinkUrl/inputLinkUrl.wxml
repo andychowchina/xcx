@@ -1,0 +1,10 @@
+  <view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+      爱服务
+    </view>
+  </view>
+<view class='publish_input_title' style='margin-top:{{navH}}px'><view class='cancel' bindtap='cancel'>取消</view><text>输入链接 </text><view class='submit {{inputNumber>0?"action":""}}' bindtap='{{inputNumber>0?"submit":""}}'>下一步</view></view>
+<view class='inputText'>
+  <textarea placeholder='请输入分享链接' maxlength="-1" bindinput='inputText' value='{{inputValue}}'></textarea>
+</view>
+

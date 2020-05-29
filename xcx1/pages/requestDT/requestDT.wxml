@@ -1,0 +1,69 @@
+<!--头部输入问题标题-->
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="questionpage" style='margin-top:{{navH}}px'>
+  <view class="inputQuestionBox">
+    <view class='inputQuestionTitle'>
+      <view class='select-query iconfont icon-sousuo'></view>
+      <view class='questionBox'>
+        <input placeholder='输入您的问题' type='text' bindinput='question' confirm-type='search' maxlength='180' value='{{question}}'></input>
+      </view>
+      <view class='select-empty iconfont icon-shanchu' wx:if="{{!!question}}" bindtap='handleEmpty'></view>
+    </view>
+  </view>
+  <view class='questionList' style='margin-top:{{navH+60}}px'>
+    <view class='classifyTheme' style='display:{{question=="" ? "block":"none"}}'>
+      <view class="imgline {{themePkid == item.pk?'imgline-active':''}}" wx:for="{{themeList}}" data-click="y" wx:key="index" data-id='{{item.rn}}' data-themeId="{{item.pk}}" bindtap='selected' data-name="{{item.title}}">{{item.title}}</view>
+    </view>
+    <scroll-view wx:if="{{questionList.length>0}}" style="width: 100%;">
+      <block wx:for="{{questionList}}" wx:for-item="item" wx:key="index" wx:for-index="idx">
+        <view class='questionList_text' bindtap='bindToDetail' data-Id='{{item.ID}}'>
+          <view>
+            <image class='Headportrait' src="{{item.HEAD_SCULPTURE}}"></image>
+          </view>
+          <view class='questionList_box'>
+            <view class="questionList_title">
+              <text wx:for="{{item.TITLE}}" wx:for-item="ite" class="{{ite.red?'red':''}}" wx:key="index">{{ite.text}}</text>
+            </view>
+            <view class='questionList_info'>
+              <label style="margin-right:30rpx">{{item.COMMENT_NUMBER}}回答</label>
+              <label>{{item.CLLECT_NUMBER}}人关注</label>
+              <!-- <label style='margin-left: 5px;'>{{item.CLLECT_NUMBER}}收藏</label> -->
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="loading" hidden="{{!searchLoading}}" bindtap="change">换一组</view>
+      <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>
+    <scroll-view wx:else>
+      <view class="hotBooks__title" style="color:#333;font-size: 30rpx;text-align: center;">暂无相关问题</view>
+    </scroll-view>
+  </view>
+</view>
+<!-- <view class="hotBooks-lists ">
+      <scroll-view wx:if="{{smallService.length>0}}" class='fwList' scroll-y="true" style="width:{{isHide==false?'70%':'100%'}}" bindscrolltolower="searchScrollLower">
+        <view wx:for="{{smallService}}" wx:for-item="item" wx:key="key">
+          <view class="item" bindtap='goServiceInfo' data-serviceId="{{item.ID}}">
+            <view class="hotBooks-left__image">
+              <image src="{{serviceManagerUrl}}{{item.LOGO}}" style="border-radius: 15rpx;width: 120rpx;height: 120rpx;"></image>
+            </view>
+            <view class="hotBooks-right">
+              <view class="hotBooks__title" style="color:#333;">{{item.SMALL_NAME}}</view>
+              <view class="detailS">
+                <text>预约数：{{item.WX_RESERVATION_NUM}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+        <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+        <!-- <view class="getMore" style="text-align: center;margin: 12rpx auto;font-size: 0.9em;height:180rpx;">
+          <text>向上轻拉获取更多</text>
+        </view>
+      </scroll-view>
+      <scroll-view wx:else>
+          <view class="hotBooks__title" style="color:#333;">暂无数据</view>
+      </scroll-view>
+    </view>
+  </view> -->

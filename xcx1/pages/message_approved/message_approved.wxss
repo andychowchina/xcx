@@ -1,0 +1,6 @@
+/*提问头部的输入框*/
+@import "../../app.wxss";
+@import "../isAttentionQuestion/isAttentionQuestion.wxss";
+.Headportrait icon{font-size:65rpx}
+.message{border:1px solid red;width:14rpx;height:14rpx;position:absoulte;right:0;top:0;background:red;border-radius:50%;float:right;margin-top:-80rpx;margin-left:20rpx}
+.message_title{border-bottom:1px solid #ccc;padding:10px;font-size:32rpx}

@@ -1,0 +1,21 @@
+
+page{background-color: #eeeeee;}
+
+.shopsInfo{display: flex;padding: 5px 10px;background-color: #ffffff;}
+.shopsImage{width: 40%;text-align: center;border: 1px solid #eeeeee;}
+.shopsImage image{width: 100px;height: 100px;}
+.shopsInfo_text{margin-left:10px; font-size: 30rpx;}
+.shopsInfo_text view{padding: 5px 0px;color: #666666}
+.shopsInfo_text label{font-weight: bold;}
+.shopsInfo_service_title{text-align: center;font-size: 30rpx;padding: 10px 0px;}
+.shopsInfo_serviceList{background-color:#ffffff;margin-top:10px;padding-top: 5px;}
+.shopsInfo_service_text{display: flex ;background-color: #eeeeee;}
+.shopsInfo_service{width: 50%;text-align: center;background-color: #ffffff;border:2px solid #eeeeee; padding-bottom: 5px;}
+.shopsInfo_service image{width: 85%;height: 120px;}
+.shopsInfo_service_info view{font-size: 25rpx;color: #666666}
+.shopsInfo_service_intro{text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;}
+.shopsInfo_service_img{text-align: center;}
+
+.shopContent{position: absolute;width: 100%;}

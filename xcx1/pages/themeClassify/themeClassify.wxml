@@ -1,0 +1,11 @@
+<!--头部输入问题标题-->
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="content" style='margin-top:{{navH}}px'>
+  <view class="content-box">
+    <view class='imgline' wx:for="{{themeList}}" bindtap="getTopic" data-id="{{item.rn}}" data-themeid="{{item.pk}}">
+      <image src='{{host}}{{item.imgUrl}}'></image>
+      <view><text class='item_txt' >{{item.title}}</text></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+@import "../index/index.wxss";
+
+
+page{background-color: #eeeeee;}
+.bottom_tab .flex-item,.top_tab .flex-item{width: 33%;}
+.bookList{background-color: #ffffff;margin-top:35px;}
+.bookInfo{display: flex;padding: 5px;font-size: 30rpx;border-bottom: 1px dashed #eeeeee}
+.bookInfo_image{width:100px;height: 60px;background: #ccc;margin-top:7px;}
+.bookInfo image{width: 90px;height: 50px;margin:5px 5px;}
+.bookInfo_text view{margin:5px 5px 8px 10px;}
+.status{padding:0px 5px;}
+.booking{ border: 1px solid #72BE21;color:#72BE21; }
+.finish{border: 1px solid #FF3F66;color:#FF3F66;}
+.nodata{font-size: 14px;}
+/* 加载 */
+.loading{
+  padding: 10rpx;
+  text-align: center;
+}
+.loading:before{
+  display: inline-block;
+  margin-right: 5rpx;
+  vertical-align: middle;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  /* background: url(../../images/icon-loading.png) no-repeat; */
+  background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+.loading.complete:before{
+  display: none;
+}
+.nav-title {
+  text-align:center;
+}

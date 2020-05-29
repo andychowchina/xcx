@@ -1,0 +1,32 @@
+.guess-titleAll_selectInput input {background-color:#EDEDED;border-radius:5px;padding:1px 5px;font-size:25rpx;height:50rpx;line-height:50rpx;min-height:50rpx;}/*提问头部的输入框*/
+@import "../../app.wxss";
+.inputQuestionTitle{margin-left:35rpx;margin-top:0px;display:flex;z-index:2;width:90%;top:0;background-color:#f8f8f8;height:37px;border:1px solid #ccc;border-radius:40rpx;}
+.select-query{width:9%;text-align:center;line-height:70rpx;color:#4BB3E0;font-size:30rpx;height:70rpx;margin-left:10rpx;}
+.questionBox{width:80%;height:50rpx;line-height:50rpx;font-size:30rpx;margin-top:10rpx;text-indent:10rpx;}
+.select-empty{width:10%;color:#ccc;line-height:78rpx;font-size:50rpx;text-align:center;height:100%;margin-right:27rpx;text-indent: -3.5rpx;}
+.Headportrait{width: 62rpx;height: 62rpx;border-radius: 50%;}
+.inputQuestionTitle input{width: 100%;height:100%;}
+
+/*输入时根据关键字查询问题*/
+.questionList{margin: 0;}
+.questionList_box{margin-left:30rpx;font-size:30rpx;}
+.questionList_text{border-bottom: 1px solid #eeeeee; display: flex; padding: 10px 15px;}
+.questionList_title{font-size:30rpx;width:355rpx;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.red {color: red;}
+.questionList_info{font-size: 22rpx; color:#ada9a9;margin-top: 5px;}
+.questionListTitle{color:#999999;font-size:22rpx;text-indent:35rpx;border-bottom:1px solid #d9d9d9;padding:15rpx 0;letter-spacing:15rpx;}
+.moreContent{color:#0092D4;font-size:22rpx;padding:7px 30rpx;}
+.counselList{width:100%;}
+.gq{background: #EAEAEA;height: 10rpx;}
+.counselList_box{font-size:30rpx;padding:20rpx 0}
+.counselList_text{border-bottom:1px solid #eee;display:flex;padding:20rpx 30rpx;height:146rpx}
+.counsel_img{width:333rpx;height:146rpx;position:absolute;right:30rpx}
+.ServiceItem{display: flex; justify-content: flex-start; font-size: 1.1em; padding: 10rpx 0  10rpx 0;margin-left:25rpx;border-bottom:1rpx solid #eaeaea;position: relative;}
+.hotBooks-left__image{float: left;border-radius: 4rpx;}
+.hotBooks-left__image image{width:41px;height:26px;margin-top: 10%;border: 1px solid #ccc;}
+.serviceName{font-size: 28rpx;}
+.coop_name{font-size: 22rpx;color: #0092D4;}
+.hotBooks-right{margin-left:25rpx; padding: 0 0 10rpx 5rpx; width: 80%;  overflow: hidden;  text-overflow:ellipsis;}
+.detailS{color:#999;width:30%; font-size:22rpx;position:absolute;right:0;top:10rpx;text-align:center;}
+.detailS icon{font-size:22rpx;}
+.serviceInfo{width:65%;}

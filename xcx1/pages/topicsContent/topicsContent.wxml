@@ -1,0 +1,203 @@
+<import src="temp.wxml" />
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <icon class='back iconfont icon-fanhui ' bindtap='navBack'></icon>
+  <view class='nav-title'>
+    爱服务
+  </view>
+</view>
+<view class='topicContent' style='margin-top:{{navH}}px;'>
+  <view class='topicBaseInfo'>
+    <view class='topicImg'>
+      <image src='{{topicBaseInfo.IMG_URL}}' mode='aspectFit'></image>
+    </view>
+    <view class='topicInfo'>
+      <view class='topicName'>#{{topicBaseInfo.TITLE}}#</view>
+      <view class='topicFunction'>讨论数{{topicBaseInfo.PARTAKE}}</view>
+    </view>
+    <view class='topicsAttend'>
+      <view class='AttendTopics' bindtap='topicAttend'>参与</view>
+    </view>
+  </view>
+  <view class='topicIntro'>{{topicBaseInfo.CONTENT}}</view>
+</view>
+<!--首页推荐内容-->
+<view class='content'>
+  <scroll-view>
+
+    <block wx:for="{{dtList}}">
+      <block wx:if="{{item.classId != '4'}}">
+        <!--首页推荐内容-->
+        <view class='section dt'>
+          <!--首页推荐内容动态头部信息-->
+          <view class='info flex-wrp' style="flex-direction:row;" bindtap='showUserInfo' data-userid='{{item.userid}}'>
+            <view class="flex-item headPhoto">
+              <image src='{{item.userImg}}' mode='scaleToFill'></image>
+            </view>
+            <view class="flex-item dtInfo">
+              <view class='nickName'>{{item.userNickName}}</view>
+              <view class='baseInfo'>
+                <text>{{item.userInfoDate}}</text>
+                <text>{{item.userInfotype}}</text>
+              </view>
+            </view>
+          </view>
+          <!--首页推荐内容动态信息bindtap='showBigPicture'  -->
+          <view class='dt_content' bindtap='jumpDtinfo' data-id='{{item.id}}'>
+            <view class='dt_content_text'>
+              <block wx:for='{{item.dtText}}' wx:for-item="dtTextContent" wx:for-index="indexT">
+                <text class='topic' wx:if="{{indexT%2==1}}" catchtap='getTopics'>#{{dtTextContent}}#</text>
+                <text wx:else>{{dtTextContent}}</text>
+              </block>
+            </view>
+            <view class='dt_content_img'>
+              <block wx:for="{{item.dtImage}}" wx:for-index="idx" wx:for-item="Image">
+                <view class='onlyImg' wx:if='{{item.dtImage.length==1}}'>
+                  <image src='{{Image.Imageurl}}' mode='widthFix' data-src='{{Image.Imageurl}}' data-list='{{item.dtImage}}'></image>
+                </view>
+                <view class='moreImg' wx:elif='{{item.dtImage.length>1}}'>
+                  <image src='{{Image.Imageurl}}' mode='aspectFill' data-src='{{Image.Imageurl}}' data-list='{{item.dtImage}}'></image>
+                </view>
+              </block>
+            </view>
+          </view>
+          <!--动态地址定位-->
+          <view class='position' wx:if='{{item.location}}'>{{item.location}}</view>
+          <!--关联的服务-->
+          <view class='serviceTitle' wx:if='{{item.smallServiceId}}'>他推荐的服务</view>
+          <view class='publish_service' wx:if='{{item.smallServiceId}}' data-serviceid='{{item.smallServiceId}}' bindtap='goServiceInfo'>
+
+            <view class='service_img'>
+              <image style="border-radius: 15rpx;width: 120rpx;height: 120rpx;" mode='aspectFit' src="{{item.logo}}"></image>
+            </view>
+            <view class='service_content'>
+              <view class='service_text'>{{item.sName}}</view>
+              <view class='service_bookNum'>已预约：{{item.reservationNum }}
+              </view>
+            </view>
+            <view class='service_icon'>
+              <icon class='iconfont icon-iconfontjiantou4'></icon>
+            </view>
+
+          </view>
+          <!--动态底部工具栏-->
+          <view class='content_function'>
+            <view class='liulan' bindtap='jumpDtinfo' data-id='{{item.id}}'>
+              <icon class='iconfont icon-chakanyanjingshishifenxi2'></icon>
+              <text>{{item.viewed}}</text>
+            </view>
+            <view class='liuyan' bindtap='jumpDtinfo' data-id='{{item.id}}'>
+              <icon class='iconfont icon-xiaoxi'></icon>
+              <text>{{item.commentNumber}}</text>
+            </view>
+            <view class='dianzhan' bindtap='functionInfo' data-Id='{{item.id}}' data-type='1' data-functionid='{{index}}'>
+              <icon class='iconfont icon-dianzan {{functionList[index].isPraise=="true"?"praised":""}}'></icon>
+              <text>{{functionList[index].greatNumber}}</text>
+            </view>
+            <view class='zhuanfa' bindtap='functionInfo' data-Id='{{item.id}}' data-functionid='{{index}}' data-type='3'>
+              <button open-type="share" data-title='{{item.dtText[1]?item.dtText[1]:item.dtText[0]}}' data-Id='{{item.id}}'>
+                <icon class='iconfont icon-fenxiang'></icon>
+                <text>{{functionList[index].shareNumber}}</text>
+              </button>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!--首页服务案例内容-->
+      <!-- <view class='section fwal' wx:for="{{fwalList}}"> -->
+      <!--首页服务案例动态头部信息-->
+      <!-- <view class='info flex-wrp' style="flex-direction:row;">
+        <view class="flex-item headPhoto"><image src='{{item.userImg}}' mode='scaleToFill'></image></view>
+         <view class="flex-item dtInfo">
+          <view class='nickName'>{{item.userNickName}}</view>
+          <view class='baseInfo'><text >{{item.userInfoDate}}</text><text>{{item.userInfotype}}</text></view>
+        </view>
+    </view> -->
+      <!--首页服务案例动态信息-->
+      <!-- <view class='fwal_content'>
+      <view class='fwal_content_title' bindtap='jumpfwalinfo'>{{item.fwalTitle}}</view>
+      <view class='fwal_content_text' bindtap='jumpfwalinfo'>{{item.fwalText}}</view>
+      <view class='dt_content_img'  >
+        <block wx:for="{{item.fwalImage}}" wx:for-index="idx" wx:for-item="Image">
+           <view class='onlyImg' wx:if='{{item.fwalImage.length==1}}'>
+             <image src='{{Image.Imageurl}}' mode='widthFix' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.fwalImage}}'  ></image>
+            </view> 
+            <view class='moreImg' wx:elif='{{item.fwalImage.length>1}}'>
+             <image src='{{Image.Imageurl}}' mode='aspectFill' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.fwalImage}}' ></image>
+            </view> 
+        </block>
+      </view>
+     </view> -->
+      <!--动态底部工具栏-->
+      <!-- <view class='content_function'>
+        <view class='liulan'><image src='../image/view.png' mode='widthFix'></image><text>999</text></view>
+        <view class='liuyan'><image src='../image/comment.png' mode='widthFix'></image><text>999</text></view>
+        <view class='dianzhan'><image src='../image/noLove.png' mode='widthFix'></image><text>999</text></view>
+        <view class='zhuanfa' ><button open-type="share"><image src='../image/share.png' mode='widthFix'></image><text>999</text></button></view> 
+      </view>
+    </view> -->
+      <block wx:else>
+        <!--首页企业问答内容（问题）-->
+
+        <view class='section qytw'>
+          <view class='info flex-wrp' style="flex-direction:row;" bindtap='showUserInfo' data-userid='{{item.userid}}'>
+            <view class="flex-item headPhoto">
+              <image src='{{item.userImg}}' mode='scaleToFill'></image>
+            </view>
+            <view class="flex-item dtInfo">
+              <view class='nickName'>{{item.userNickName}}</view>
+              <view class='baseInfo'>
+                <text>{{item.userInfoDate}}</text>
+                <text>{{item.userInfotype}}</text>
+              </view>
+            </view>
+          </view>
+          <!--首页企业问答动态信息-->
+          <view class='qytw_content' bindtap='jumpDtinfo' data-id='{{item.id}}'>
+            <view class='qytw_content_title'>
+              <text class='qytw_type'>提问</text>{{item.qytwTitle}}</view>
+            <view class='qytw_info'>
+              <text>{{item.collectNum}}收藏</text>
+              <text>{{item.commentNum}}回答</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <!--首页企业问答动态信息（回答）-->
+    <!-- <view class='section  qyhd' wx:for="{{answerList}}" > -->
+    <!--首页企业问答动态头部信息-->
+    <!-- <view class='info flex-wrp' style="flex-direction:row;">
+        <view class="flex-item headPhoto"><image src='{{item.userImg}}' mode='scaleToFill'></image></view>
+         <view class="flex-item dtInfo">
+          <view class='nickName'>{{item.userNickName}}</view>
+          <view class='baseInfo'><text >{{item.userInfoDate}}</text><text>{{item.userInfotype}}</text></view>
+        </view>
+      </view>
+      <view class='answer_content' >
+      <view class='answer_content_title' bindtap='jumpQandA'>{{item.answerTitle}}</view>
+      <view class='answer_content_text' bindtap='jumpQandA'>{{item.answerText}}</view>
+      <view class='answer_content_img'  >
+        <block wx:for="{{item.answerImage}}" wx:for-index="idx" wx:for-item="Image">
+           <view class='onlyImg' wx:if='{{item.answerImage.length==1}}'>
+             <image src='{{Image.Imageurl}}' mode='widthFix' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.answerImage}}'  ></image>
+             
+            </view>
+            <view class='moreImg' wx:elif='{{item.answerImage.length>1}}'>
+             <image src='{{Image.Imageurl}}' mode='aspectFill' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.answerImage}}' ></image>
+            </view> 
+        </block>
+       </view>
+      </view>
+     </view>  -->
+    <!--动态底部工具栏-->
+    <!-- <view class='content_function'>
+        <view class='liulan'><image src='../image/view.png' mode='widthFix'></image><text>999</text></view>
+        <view class='liuyan'><image src='../image/comment.png' mode='widthFix'></image><text>999</text></view>
+        <view class='dianzhan'><image src='../image/noLove.png' mode='widthFix'></image><text>999</text></view>
+        <view class='zhuanfa' ><button open-type="share"><image src='../image/share.png' mode='widthFix'></image><text>999</text></button></view> 
+      </view> -->
+    <!--结束-->
+  </scroll-view>
+  <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+</view>

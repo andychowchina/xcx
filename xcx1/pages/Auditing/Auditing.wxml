@@ -1,0 +1,10 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+    <view class='nav-title'>
+        爱服务
+    </view>
+  </view>
+<view class='companyTab' style='margin-top:{{navH}}px'><text>提交申请</text><span class='active'></span><span></span><text>等待审核</text></view>
+<view class='icon'><icon type="success" size="110"/></view>
+<view class='title'>提交成功</view>
+<view class='text'>我们的客服人员会在3-5个工作日后与您联系</view>
+<view class='btn' bindtap='backIndex'>去通知你的客户</view>

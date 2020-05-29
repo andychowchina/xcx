@@ -1,0 +1,42 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class="questionpage" style='margin-top:{{navH+10}}px'>
+  <view class='inputQuestionTitle'>
+    <view class='select-query iconfont icon-sousuo' bindtap='jumpQuiz'></view>
+    <view class='questionBox'>
+      <input placeholder='搜索咨询' type='text' bindinput='question' confirm-type='search' maxlength='180' value='{{question}}'></input>
+    </view>
+    <view class='select-empty iconfont icon-shanchu' wx:if="{{!!question}}" bindtap='handleEmpty'></view>
+    <!-- <view class='submit' bindtap='jumpQuiz'>下一步</view> -->
+  </view>
+</view>
+<view class='gq'></view>
+<view wx:if="{{courselLists.length>0}}" style="width: 100%;">
+  <block wx:for="{{courselLists}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+    <view class='counselList_text wepay' bindtap='bindTocourselDetail' data-Id='{{item.pk}}' data-url='{{item.domain}}'>
+      <view class='counselList_box'>
+        <view class='questionList_title'>
+          <searchHighlightTextView 
+            class="result-item" 
+            datas='{{item.titleT}}' 
+          />
+          <!-- <text wx:for="{{item.title}}" wx:for-item="ite" class="{{ite.red?'red':''}}">{{ite.text}}</text> -->
+        </view>
+        <view class='questionList_info'>
+          <label>
+            <text class="lable_text" style="margin-right:15rpx;">{{item.resources}}</text>
+            <text class="lable_text">{{item.addTime}}</text>
+          </label>
+        </view>
+      </view>
+      <view>
+        <image class='counsel_img' src="{{host + item.imageUrl}}"></image>
+      </view>
+    </view>
+  </block>
+  <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+  <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+</view>
+<view wx:else>
+  <view class="hotBooks__title" style="color:#333;font-size: 30rpx;text-align: center;">暂无相关问题</view>
+</view>

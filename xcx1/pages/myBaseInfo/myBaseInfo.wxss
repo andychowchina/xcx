@@ -1,0 +1,11 @@
+@import "../inputText/inputText.wxss";
+.myBaseInfo{ background-color: #ffffff; border-bottom:1px solid #eeeeee; border-top:1px solid #eeeeee; padding: 0px 10px;}
+.myBaseInfo_text{display: flex;border-bottom:1px solid #eeeeee; }
+.myBaseInfo view:last-child{border-bottom:0px; }
+.myBaseInfo_text label{width: 30%;font-size: 32rpx;line-height: 22px;}
+.myBaseInfo_text{padding: 10px 0px;}
+.myBaseInfo_text input{font-size: 32rpx;color: #666666;width: 65%;}
+.myBaseInfo_text  button{ width: 70%;display:inline;font-size:32rpx;text-align: left;padding: 0px;outline:0 none;
+z-index: 99;background-color:transparent;color: #666666;line-height: 22px;}
+button::after{border:none;border-radius:0;}
+.inputNumber{font-size: 25rpx;line-height: 25px;color: #999999}

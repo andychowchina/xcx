@@ -1,0 +1,49 @@
+@import "../index/index.wxss";
+@import "../../app.wxss";
+page{  overflow: hidden;}
+.servicepage{height: 100%;}
+.recommendFY{ background-color: #eeeeee; display: block;height: 100%;}
+.guess-titleAll{width: 100%; overflow: hidden;background-color: #ffffff; border-bottom:1px solid #E6E6E6 }
+.guess-titleAll .search{border:1px solid #CCCCCC;border-radius: 30px; width: 90%;margin:15rpx auto;display: flex;background-color: #EDEDED;padding: 5rpx 15rpx;height: 50rpx;}
+.guess-titleAll .guess-title{float: left; color:#111; font-weight: 600;}
+.hotBooks-lists{overflow: hidden; padding-top: 85rpx;display: flex;height: 100%;}
+.hotBooks-lists .item{display: flex; justify-content: flex-start; font-size: 1.1em; padding: 10rpx 0  10rpx 0;margin-left:25rpx;border-bottom:1rpx solid #eaeaea;}
+.hotBooks-lists .hotBooks-left__image{float: left;border-radius: 4rpx;}
+.hotBooks-lists .item .hotBooks-right{margin-left:25rpx; padding: 0 0 10rpx 5rpx; width: 80%;  overflow: hidden;  text-overflow:ellipsis;}
+.hotBooks-right .hotBooks__title,
+.hotBooks-right .detailS{color:#999; font-size:28rpx;  align-self: center; margin-top: 10rpx;}
+.hotBooks-right .hotBooks__title{width:65%;}
+.hotBooks-right .detailS{width:35%;}
+.serviceInfo{display: flex;margin-top: 10rpx;}
+.detailS view{display: block; font-size: 24rpx;text-align: center;}
+.detailS view::after{content: "\e634";}
+.detailS text:first-child{color: #FD862F; font-size: 28rpx;}
+.serviceName{display: block; font-size: 28rpx; margin-left: 5px;word-break:break-all;}
+.coop_name{color:#0093D4;display: block; font-size: 28rpx; margin-left: 5px;width: 100%;}
+.play-icon{width: 27rpx; height: 27rpx;float: right;}
+.wew{width: 23px;height: 18px;padding-left: 15px;padding-top: 20px;}
+.guess-titleAll{position: fixed; z-index: 999;}
+.guess-titleAll .guess-titleAll_menu{width: 10%;text-align: center;}
+.guess-titleAll .guess-titleAll_selectInput{width: 90%;text-align: center;}
+.guess-titleAll .guess-titleAll_selectQuery{width: 10%;text-align: center ;line-height:55rpx;color:#4BB3E0;font-size:30rpx;height:50rpx;}
+.guess-titleAll_selectInput input{background-color: #EDEDED;border-radius:5px;padding:1px 5px;font-size: 25rpx;height: 50rpx;line-height: 50rpx;min-height: 50rpx; }
+
+.hiden{display: none;}
+
+/*左侧服务产品类别列表*/
+.fwTypeList{width:30%;background-color: #eeeeee; font-size: 40rpx;white-space:nowrap;height: 100%;}
+.fwTypeList .fwTypeitem{height: 80rpx;line-height: 80rpx; padding: 0px 5px; font-size: 28rpx;text-align: center;}
+::-webkit-scrollbar{height: 0;color:transparent;width: 0;}
+/*左侧服务列表*/
+.fwList{background-color: #ffffff;}
+/* 加载 */
+.loading{padding:10rpx;text-align:center;font-size:28rpx;height:20px}
+.loading:before{display:inline-block;margin-right:5rpx;vertical-align:middle;content:'';width:40rpx;height:40rpx;background-size:contain;animation:rotate 1s linear infinite}
+.loading.complete:before{display: none;}
+.fwTypeList .active{background-color: #ffffff;color:#0093D4;border-left:3px solid #0093D4;text-align: center; }
+
+/*标准化和非标准化*/
+.serviceType{position: absolute;right: 5px;width: 55rpx; height: 55rpx;font-size: 30rpx;text-align: center;line-height: 55rpx;color: #FF0000  ;border: 1px solid #FF0000; border-radius: 50%;margin-top: 60rpx;}
+
+/*首页标题*/
+.nav-title{text-align: left;margin-left:35rpx;}

@@ -1,0 +1,57 @@
+<!--pages/myCollect/myCollect.wxml-->
+<import src="../index/temp.wxml" />
+<import src="../putQuestion/temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<!-- <view class='userInfo' style='margin-top:{{navH}}px'>
+
+</view> -->
+<view class="containers"  style='padding-top:{{navH}}px'>
+  <view class='top_tab'>
+    <view class="flex-wrp">
+      <view wx:for="{{data}}" class="flex-item" wx:for-index="index">
+        <view class="{{swiperIndex == index?'active':''}}" data-index="{{index}}" catchtap="setSwiperIndex">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <swiper bindchange="swiperChangeHandle" current="{{swiperIndex}}">
+      <block wx:for="{{data}}" wx:for-item="dataItem">
+        <swiper-item>
+          <scroll-view scroll-y bindscrolltolower="scrolltolowerHandle"> 
+            <!--问答内容-->
+            <block wx:for="{{dtList}}" wx:if="{{dataItem.id == 0}}">
+              <template is="grsc" data="{{item:item,index:index,functionList:functionList}}" />
+            </block>
+            <block wx:if="{{dataItem.id == 1}}">
+              <view wx:for="{{sList}}" wx:for-item="item" wx:key="key" wx:for-index="idx">
+                <view class="ServiceItem">
+                  <view class="hotBooks-left__image">
+                    <image src="{{item.logo}}" mode='aspectFit'></image>
+                  </view>
+                  <view class="hotBooks-right">
+                    <view bindtap='{{selectServeice=="true"?"selectServeice":"goServiceInfo"}}' data-serviceid="{{item.sid}}" data-serviceimg="{{item.logo}}" data-servicename="{{item.userNickName}}" data-servicenum="{{item.WX_RESERVATION_NUM}}" data-fwsid="{{item.FWS_ID}}"
+                      class='serviceInfo'>
+                      <view class='hotBooks_title' style="color:#333;">
+                        <view class="serviceName">
+                          <text>{{item.sName}}</text>
+                        </view>
+                        <view class='coop_name' catchtap='goDianPu' data-fwsid="{{item.dtText}}">{{item.userNickName}}</view>
+                      </view>
+                      <view class="detailS" catchtap="goServiceInfo" data-serviceid="{{item.sid}}" data-serviceimg="{{host}}{{item.IMGURL}}" data-servicename="{{item.userNickName}}" data-servicenum="{{item.WX_RESERVATION_NUM}}" data-fwsid="{{item.FWS_ID}}">
+                        <text>{{item.reservationNum?item.reservationNum:0}}人预约</text>
+                        <icon class='iconfont icon-iconfontjiantou4'></icon>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <view class="loading" hidden="{{!loading}}">正在载入更多...</view>
+            <view class="loading complete" hidden="{{!loadingComplete}}">已加载全部</view>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

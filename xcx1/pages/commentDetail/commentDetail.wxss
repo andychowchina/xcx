@@ -1,0 +1,40 @@
+@import "../dynamicInfo/dynamicInfo.wxss";
+@import "../../app.wxss";
+
+.headPhoto image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.commentUser {
+  display: flex;
+  padding: 10rpx 30rpx;
+}
+
+.commentUserFunction {
+  /* display: flex; */
+  font-size: 22rpx;
+  color: #999;
+  padding: 10rpx 60rpx;
+}
+
+/* .commentUserFunction>view {
+  flex: 1;
+} */
+
+.content {
+  margin-top: 12px;
+}
+
+.mgg_10 {
+  margin-top: 30rpx;
+}
+
+.recordName {
+  color: #199ed8;
+}
+
+.pinLunDianzan {
+  margin-top: 0px;
+}
+

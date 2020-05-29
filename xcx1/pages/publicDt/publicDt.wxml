@@ -1,0 +1,59 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+<icon class='back iconfont icon-fanhui 'bindtap='navBack'></icon>
+    <view class='nav-title'>
+        爱服务
+    </view>
+  </view>
+<form bindsubmit='addDynamic' >
+  <view class='publish_content' style='padding-top:{{navH}}px'>
+    <view class='publish_input'>
+      <textarea bindinput="bindTextAreaBlur" value='{{content}}' placeholder="需要发布的内容..." maxlength="-1"/> 
+    </view>
+    <view class='publish_image'>
+      <view class='dt_content_img'>
+        <block wx:for="{{publishImages}}" wx:for-index="idx" wx:for-item="Image">
+          <view class='moreImg'>
+            <image src='{{Image}}' mode='aspectFill' bindtap='deleteLocalImageList' data-src='{{Image}}' data-list='{{publishImages}}' data-index="{{idx}}"></image>
+          </view>
+        </block>
+        <view class='publish_image_add' bindtap='selectImage' wx:if='{{publishImages.length<9}}' data-imagesLength='{{publishImages.length}}'>+</view>
+      </view>
+      <view class='clear'></view>
+    </view>
+
+    <view class='publish_position' bindtap='getPosition'>
+      <icon class='iconfont icon-dingwei'></icon>
+      <text>{{address}}</text>
+    </view>
+    <view class='publish_service' wx:if='{{serviceid}}' data-serviceid='{{serviceid}}' bindlongtap='goServiceInfo'>
+      <icon class='iconfont icon-guanbi' bindtap='deleteServiceInfo'></icon>
+      <view class='service_img'>
+        <image style="border-radius: 15rpx;width: 120rpx;height: 120rpx;" mode='aspectFit' src="{{serviceimg}}"></image>
+      </view>
+      <view class='service_content'>
+        <view class='service_text'>{{servicename}}</view>
+        <view class='service_bookNum'>预约数：{{servicenum}}</view>
+      </view>
+      <view class='service_icon'>
+        <icon class='iconfont icon-iconfontjiantou4'></icon>
+      </view>
+
+    </view>
+    <!-- <view class='linkUrl' wx:if='{{linkUrl}}' data-linkurl='{{linkUrl}}' bindtap='showLinkUrl'>文章链接：{{linkUrl}}</view> -->
+  </view>
+  <!--底部功能模块-->
+  <view class='publish_function'>
+    <view class='publish_function_leftBtn' bindtap='selectImage'>
+      <icon class='iconfont icon-tupian'></icon>
+    </view>
+    <view class='publish_function_leftBtn' bindtap='selectService'>
+      <icon class='iconfont icon-caidan'></icon>
+    </view>
+    <view class='publish_function_leftBtn' bindtap='topicsList' data-linkUrl='{{linkUrl}}'>
+      <icon class='iconfont icon-wellnum'></icon>
+    </view>
+    <view class='publish_function_rightBtn'>
+      <view class='publish_button {{(!content&&publishImages.length<=0)?"noPublish":""}}' bindtap='{{(!content&&publishImages.length<=0)?"":"addDynamic"}}'>发布</view>
+    </view>
+  </view>
+</form>

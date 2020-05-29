@@ -1,0 +1,40 @@
+<view class="login">
+	<!-- 输入手机号部分 -->
+	<view wx:if="{{phoneCode}}">
+		<view class="title" bindtap="getUserInfo">验证手机号</view>
+		<view class="loginPhone">
+			<view class="loginPhoneWord">为了你的账户安全，请绑定手机</view>
+			<view class="loginPhoneCont">
+				<text>+86</text>
+				<input placeholder="请输入您的手机号码" bindtap="" focus="true" maxlength="11" bindinput="getInputPhone" value="{{inputPhone}}"></input>
+			</view>
+			<!-- <text class="clear" bindtap="clearPhone">x</text> -->
+		</view>
+		<button class="bottom {{ phoneRight ? 'phoneRight' : 'phoneError' }}" bindtap="{{ phoneRight ? 'submitPhone' : '' }}">
+			立即验证
+		</button>
+	</view>
+	<!-- 验证手机号部分 -->
+	<view wx:else>
+		<view class="title">输入验证码</view>
+		<view class="showPhone">
+			<view>手机号码</view>
+			<view>+86 {{phone}}</view>
+		</view>
+        <!-- 验证码 -->
+		<view class="loginCode">
+			<block wx:for="{{Length}}" wx:key="index">
+				<input value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='inputCode' />
+			</block>
+		</view>
+        <!-- 伪输入框 -->
+        <view>
+            <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
+        </view>
+		<view class="codeFooter">
+			<text bindtap="backLogin">返回上一步</text>
+			<!-- <view bindtap="sendCode" class="sengCode" wx:if="{{sendCode}}">获取验证码</view> -->
+			<view bindtap="sendCode" class="sengCode" >{{codeButton}}</view>
+		</view>
+	</view>
+</view>

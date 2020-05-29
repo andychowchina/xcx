@@ -1,0 +1,48 @@
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<scroll-view style='margin-top:{{navH}}px'>
+  <!-- 精选评论 -->
+  <view class="title" wx:if="{{commentList.length*totalNumber}}">
+    <text decode="{{true}}" space="{{true}}"> 精选评论 &nbsp;({{commentList.length>2?2:commentList.length}})</text>
+  </view>
+  <view style="background:#fff" class="itemBox">
+    <block wx:for="{{commentList}}" wx:if='{{index<2}}' wx:key="index">
+      <template is="jingxuanComment" data="{{item:item,index:index,praiseList:praiseList}}"></template>
+    </block>
+  </view>
+
+  <!-- 评论 -->
+  <view class="title" wx:if="{{commentList.length*totalNumber}}">
+    <text decode="{{true}}" space="{{true}}"> 评论 &nbsp;({{totalNumber}})</text>
+  </view>
+  <view class='content'>
+    <view class='section dt'>
+      <view class='content_function_r itemBox'>
+        <block wx:for="{{commentList}}" wx:for-index="index" wx:key="index">
+          <template is="pinlunInfo" data="{{item:item,index:index,praiseList:praiseList}}"></template>
+        </block>
+        <view class='nodata' wx:if="{{commentList.length==0}}">当前暂无评论</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='loadMore {{loadMore==false?"hide":""}}'>加载中...</view> -->
+  <view class='loadMore' wx:if="{{noData}}">没有更多内容了。。。</view>
+</scroll-view>
+
+<!-- 写评论 -->
+<view class="flexBtn" wx:for="{{commentList}}" wx:key="index" wx:if="{{commentList.length!=0}}">
+  <view class='myInfo_function_text inputBtn' style="width:100%" bindtap='write' data-type="show" data-isthrcomm="n" data-commentId='{{item.ID}}' data-replyUserId='{{item.WX_USER_ID}}'>
+    <text>请输入评论...</text>
+  </view>
+</view>
+<!--弹出评论-->
+<view class='junpComment {{isShow==false?"hide":""}}'>
+  <textarea placeholder='友善的评论是交流的起点!' cursor-spacing="40" focus="{{focus}}" auto-height maxlength='100' fixed="true" show-confirm-bar="{{disable}}" bindinput='getInputComment' value='{{inputText}}'></textarea>
+  <view bindtap='addInformationComment'>
+    <text></text>
+    <text>发送</text>
+  </view>
+</view>
+
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtouchmove='write' bindtap='write' data-type='hide'></view>

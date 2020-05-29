@@ -1,0 +1,31 @@
+@import "../../app.wxss";
+/*底部标签切换*/
+.flex-wrp {display: flex;}
+.bottom_tab .flex-item,.top_tab .flex-item{width: 25%;text-align: center;font-size: 12px;}
+.bottom_tab{position: fixed;width: 100%;bottom: 0;z-index: 100;background-color:#eeeeee;height: 50px;color: #666666;}
+.bottom_tab icon{display: inline;font-size: 22px;}
+.bottom_tab .flex-wrp .active{color:#0099CC;}
+.icon-addressbook{font-size: 27px!important;}
+.icon-addressbook_fill{font-size: 27px!important;}
+.icon-duomeitiicon-{font-size: 26px!important;}
+.bottom_tab .publish{background-color:#0099CC;color:#ffffff; width: 40px; height: 40px; line-height: 38px;border-radius:50%;font-size: 24px; margin:5px 0px 0px 10px;}
+.bottom_tab  button{background:transparent;line-height: 20px;font-size:12px;
+outline:0 none;display: inline;border: 0px; color:#666666;}
+.bottom_tab  button view:first-child{margin-top: -20px;}
+.message{font-size: 12px;}
+
+/*发布按钮*/
+.button_publish{text-align: center; height:50px;position: fixed;z-index:2;bottom:0;}
+.button_publish .publishBtn{ display: inline-block;width: 40px;height: 40px;position: absolute;left: 320rpx;border-radius:50%; color: #ffffff;}
+.btnImage{background-color: #0099CC;border-radius: 5px;width: 35px;height: 35px;line-height:35px; }
+.publishBtn .btnText{font-size:32rpx;color: #000000; margin-top: 5px;}
+.message_prompt {
+width: 24rpx;
+height: 24rpx;
+display: block;
+position: absolute;
+bottom: 30rpx;
+right: 230rpx;
+background: red;
+border-radius: 50%;
+}

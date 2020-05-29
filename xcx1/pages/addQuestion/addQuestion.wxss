@@ -1,0 +1,10 @@
+/* pages/addQuestion/addQuestion.wxss */
+@import '../index/index.wxss';
+@import "../../app.wxss";
+@import "../releaseQuestionss/releaseQuestionss.wxss";
+
+.publish_input textarea{height:220rpx;background-color:#eee;padding:20rpx 20rpx}
+.dt_content_img{margin-top:0;background:#eee;padding:0 22rpx;padding-bottom:35rpx}
+.moreImg image{margin:0 10rpx}
+.publish_image{width:95%}
+.publish_image_add{margin:11rpx 22rpx;border:5rpx solid #d9d9d9}

@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "cell": "plugin://contactPlugin/cell"
+   }
+}

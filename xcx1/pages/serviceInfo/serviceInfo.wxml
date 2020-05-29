@@ -1,0 +1,89 @@
+<import src="../../wxParse/wxParse.wxml" />
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+
+<view class='serviceImage' style='margin-top:{{navH}}px'>
+	<image src='{{serviceManagerUrl}}{{smallService.imgurl}}' mode='widthFix'></image>
+</view>
+<view class='serviceInfo'>
+	<view class='serviceTitle'>{{smallService.name}}</view>
+	<view class='serviceIntro'>{{smallService.intro}}</view>
+	<view class='servicePirce'>
+		<!--<text>预约 {{smallService.wxReservationNum?smallService.wxReservationNum:0}}</text>-->
+		<text>￥{{smallService.showMoney}}/{{smallService.chargeUnit}}</text>
+		<button open-type="share" data-title='{{smallService.name}}'>
+			<icon class='iconfont icon-fenxiang1'></icon>
+		</button>
+	</view>
+	<view class='assure'>
+		<text>担保</text>
+		<icon class='iconfont icon-yigouxuan'></icon><text>担保交易</text>
+	</view>
+	<view class='serviceIntro_info'>
+		<!-- <image src='{{serviceManagerUrl}}{{smallService.WX_CONTENT_IMG}}' mode='widthFix'></image> -->
+		<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+	</view>
+</view>
+
+<!--底部功能栏-->
+<view class='bottom_tab'>
+	<view class="flex-wrp" style="flex-direction:row;">
+		<view class=" flex-item" data-fwsid="{{fwsId}}" bindtap='dianpu' data-num='0'>
+			<view>
+				<icon class='iconfont icon-shangdian'></icon>
+			</view>
+			<view>
+				<text>店铺</text>
+			</view>
+		</view>
+		<view class="flex-item" data-url='../message/message' bindtap='indexSwitchTab' data-num='2'>
+		<!-- ------------------ -->
+			<!-- <view>
+				<icon class='iconfont icon-kefu'></icon>
+			</view>
+			<view class="contact">
+				<cell buttonText="0" bind:completemessage="completemessage" plugid='ca8421f8a664711d3263adc99d04c097'  />
+			</view> -->
+		<!-- ------------------- -->
+			<button open-type="contact">
+				<view>
+					<icon class='iconfont icon-kefu'></icon>
+				</view>
+				<view>
+					<text class="message">客服</text>
+				</view>
+			</button>
+		</view>
+		<view class="flex-item {{isCollect==true?'praised':''}}" data-url='../myInfo/myInfo' bindtap='shoucang' data-serviceid="{{smallService.pk}}" data-num='3'>
+			<view>
+				<icon class='iconfont icon-shoucang1'></icon>
+			</view>
+			<view>
+				<text>收藏</text>
+			</view>
+		</view>
+		<view class="flex-item bookBtn" data-num='3'>
+			<view class='book' bindtap='bookService'>预约服务</view>
+		</view>
+	</view>
+</view>
+<!--弹出页面底部模板-->
+<view class='myBaseInfo {{isShow==false?"hide":""}}'>
+	<form bindsubmit="serviceConvention" data-serviceid="{{smallService.pk}}" data-serviceName="{{smallService.name}}" data-fwsid="{{smallService.providerId}}">
+		<view class='myBaseInfo_text'>
+			<label>联系人姓名：</label>
+			<input type='text' placeholder='联系人姓名' maxlength="10" name='contact'></input>
+		</view>
+		<view class='myBaseInfo_text'>
+			<label>电话：</label>
+			<input type='number' placeholder='请输入电话' name='phone' maxlength="11" wx:if="{{telType=='input'}}"></input>
+			<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{telType=='get'}}">{{phoneNumber}}</button>
+		</view>
+		<view class="close" bindtap='close1'>X</view>
+		<view class='btn'>
+			<button form-type="submit">确认</button>
+		</view>
+	</form>
+</view>
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtap='hideInput'>取消</view>

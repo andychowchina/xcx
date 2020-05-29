@@ -1,0 +1,13 @@
+<template name="topTitle">
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    {{titleText}}
+  </view>
+  <view class='nav_rightFunction' >
+    <view><icon class='back iconfont icon-right ' bindtap='navBack'></icon></view>
+    <view class='line'>|</view>
+    <view><icon class='back iconfont icon-union ' bindtap='navMainPage'></icon></view>
+  </view>
+  
+</view>
+</template>

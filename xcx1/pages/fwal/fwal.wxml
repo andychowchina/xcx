@@ -1,0 +1,65 @@
+<!--pages/dynamicInfo/dynamicInfo.wxml-->
+<!-- <text>pages/dynamicInfo/dynamicInfo.wxml</text> -->
+<!--首页推荐内容-->
+<view class='content'>
+  <scroll-view>
+  <!--首页推荐内容-->
+    <view class='section dt' wx:for="{{fwalList}}">
+     <!--首页推荐内容动态头部信息-->
+      <view class='info flex-wrp info_d'>   
+      </view>
+      <!--首页推荐内容动态信息-->
+    <view class='fwal_content'>
+      <view class='fwal_content_title' bindtap='jumpfwalinfo'>{{item.fwalTitle}}</view>
+      <view class='fwal_content_text' bindtap='jumpfwalinfo'>{{item.fwalText}}</view>
+      <view class='dt_content_img'  >
+        <block wx:for="{{item.fwalImage}}" wx:for-index="idx" wx:for-item="Image">
+           <view class='onlyImg' wx:if='{{item.fwalImage.length==1}}'>
+             <image src='{{Image.Imageurl}}' mode='widthFix' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.fwalImage}}'  ></image>
+            </view> 
+            <view class='moreImg' wx:elif='{{item.fwalImage.length>1}}'>
+             <image src='{{Image.Imageurl}}' mode='aspectFill' bindtap='showBigPicture' data-src='{{Image.Imageurl}}'  data-list='{{item.fwalImage}}' ></image>
+            </view> 
+        </block>
+      </view>
+     </view>
+      <!--评论内容start  -->
+      <view class='content_function_r'>
+        <view class='rmpl'>热门评论</view>
+        <view class='info flex-wrp rmpl_img'>
+          <view class="flex-item headPhoto"><image class='img_dx' src='{{item.userImg}}' mode='scaleToFill'></image></view>
+          <view class="flex-item dtInfo mgl_10" >
+            <view class='nickName mgg_10'>{{item.userNickName}}</view>
+          </view>
+        </view>
+        <!--评论体start  -->
+        <view class='info flex-wrp' style="flex-direction:row;">
+          <view class="flex-item dtInfo">
+            <view class='nickName hfxx'>回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容</view>
+            <view class='baseInfo mgb_6'>
+              <image src='../image/2.jpg'></image>
+            </view>
+            <view class='baseInfo text_l_26'>
+              <text >{{item.userInfoDate}}</text>
+              <image src='../image/comment.png' mode='widthFix' class='imag_280'></image><text>999</text>
+              <image src='../image/noLove.png' mode='widthFix' class='imag_280'></image><text>999</text>
+            </view>
+          </view>
+        </view>
+        <!--评论体end  -->
+      </view> 
+      <!--评论内容end  -->
+    </view>
+  </scroll-view>
+</view> 
+<!--底部功能栏-->
+<view class='bottom_tab'>
+    <view class='content_function' style='padding:2px;'>
+    <view class='liulan'><input placeholder='写评论...' style='padding:8px;'></input></view>
+    <view class='liuyan'><image src='../image/comment.png' mode='widthFix'></image><text>999</text></view>
+    <view class='dianzhan'><image src='../image/noLove.png' mode='widthFix'></image><text>999</text></view>
+    <view class='zhuanfa' >
+      <button open-type="share"><image src='../image/share.png' mode='widthFix'></image><text>999</text></button>
+    </view> 
+    </view>
+</view> 

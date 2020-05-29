@@ -1,0 +1,42 @@
+/* .header{border-bottom:1px solid #ccc;text-align:center;height:420rpx;line-height:450rpx;padding:15px 0 30px 0}
+.header image{width:420rpx;height:420rpx}
+.content{margin-top:30px;padding-left:20px}
+.content text{display:block;color:#9d9d9d;margin-top:40rpx}*/
+.login {
+  padding: 40rpx;
+}
+
+.title {
+  margin-top: 50rpx;
+}
+
+.bottom {
+  margin-top: 70rpx;
+  border-radius: 10rpx;
+  font-size: 35rpx;
+  color: #000!important;
+  background: #f1d089!important;
+}
+.loginPhone{
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+.loginPhoneWord{
+  padding: 30rpx 0;
+}
+.loginPhoneCont{
+  display: flex;
+  line-height: 56rpx;
+  /* border: 1px solid red; */
+}
+.loginPhoneCont>text:nth-child(1){
+  width: 70rpx;
+  margin: 0 30rpx;
+}
+.loginPhoneCont>text:nth-child(3){
+  width: 30rpx;
+}
+.loginPhoneCont>input{
+  flex: 1;
+}

@@ -1,0 +1,184 @@
+@import "../index/index.wxss";
+@import "../myBaseInfo/myBaseInfo.wxss";
+@import "../../app.wxss";
+@import "../../wxParse/wxParse.wxss";
+
+page {
+  background-color: #fff;
+}
+
+.serviceImage {
+  text-align: center;
+  margin-top: 10px;
+  padding: 5px 0px 15px 0px;
+  margin: 0px 5px;
+}
+
+.serviceImage image {
+  width: 90%;
+  height: auto;
+}
+
+.serviceInfo {
+  margin: 5px 10px;
+  padding-bottom: 50px;
+}
+
+.serviceTitle {
+  font-weight: bold;
+  font-size: 40rpx;
+  padding: 5px 0px;
+}
+
+.serviceIntro {
+  font-size: 30rpx;
+  padding: 5px 0px;
+}
+
+.serviceIntro_info {
+  clear: both;
+  border-top: 1px dashed #eee;
+  margin-top: 20rpx;
+}
+
+.serviceIntro_info image {
+  width: 100%;
+}
+
+.serviceIntro_title {
+  border-top: 1px solid #eee;
+  padding: 25px 0px;
+  margin-top: 20px;
+}
+
+.servicePirce {
+  margin: 20rpx 0;
+  padding: 10rpx 0rpx;
+  font-size: 24rpx;
+}
+
+/* .servicePirce text:first-child{margin: 19rpx 24rpx 10rpx 24rpx;color: #999999;float: left;} */
+
+.servicePirce text {
+  margin: 10rpx 24rpx;
+  color: #f00;
+  font-size: 32rpx;
+}
+
+/*分享按钮*/
+
+.servicePirce button {
+  display: inline-block;
+  background-color: transparent;
+  line-height: 1;
+  right: 0px;
+  position: absolute;
+  margin-top: -18rpx;
+}
+
+/*担保*/
+
+.assure {
+  font-size: 24rpx;
+  border-top: 1px dashed #eee;
+}
+
+.assure .iconfont {
+  font-size: 24rpx;
+  color: #f00;
+  margin: 0rpx 10rpx 0rpx 15rpx;
+}
+
+.assure text:first-child {
+  color: #999;
+  margin-right: 20rpx;
+}
+
+/*底部*/
+
+.bottom_tab {
+  background-color: #eee;
+}
+
+.bottom_tab .flex-item {
+  width: 15%;
+}
+
+.bottom_tab  .bookBtn {
+  width: 55%;
+}
+
+.book {
+  background-color: #09c;
+  color: #fff;
+  width: 150px;
+  margin: auto;
+  padding: 10px 0px;
+  margin-top: 4px;
+  border-radius: 10px;
+}
+
+/*弹出预约*/
+
+.myBaseInfo {
+  position: fixed;
+  top: 450rpx;
+  z-index: 1;
+  border-radius: 10px;
+  width: 90%;
+  left: 15rpx;
+}
+
+/* 关闭按钮 */
+.close {
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.btn {
+  text-align: center;
+  padding: 10px;
+}
+
+.btn button {
+  background-color: #09c;
+  color: #fff;
+  padding: 5px 15px;
+  font-size: 30rpx;
+  border-radius: 5px;
+  width: 160rpx;
+}
+
+/*客服*/
+button {
+  background-color: transparent;
+  font-size: 26rpx;
+  line-height: normal;
+}
+
+.reveal-modal-bg {
+  background: rgba(0, 0, 0, 0.4);
+}
+/* 联系我的样式 */
+/* .contact{
+  margin-top: 10rpx;
+}
+.contact button{
+  height: 150rpx;
+  background: #fff;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 35rpx;
+}
+.contact image,.contact text{
+  display: none;
+} */
+

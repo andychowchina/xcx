@@ -1,0 +1,11 @@
+@import "../../app.wxss";
+/* pages/inputText/inputText.wxss */
+page{background-color:#eeeeee; }
+.publish_input_title{display: flex;line-height: 30px;font-size: 34rpx;}
+.cancel{width: 20%;text-align: center;color:#FF6633;}
+.publish_input_title text{width: 60%;display: block;text-align: center;font-size:38rpx;font-weight: bold;}
+.submit{width: 20%;text-align: center;color:#999999}
+.inputText{background-color: #ffffff;margin-top: 5px;}
+.inputText textarea{padding: 10px 15px;font-size: 32rpx;}
+.number{font-size:32rpx;margin-top: 10px;margin-left: 10px;color: #999999;}
+.action{color:#1296DB}

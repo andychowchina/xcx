@@ -1,0 +1,22 @@
+@import "../index/index.wxss";
+.myAttation{display: flex;margin: 5px 5px 10px 5px;}
+.myAttationImg{width: 18%;text-align: center; }
+.myAttationImg image{width: 100rpx; height: 100rpx;border-radius:50%; }
+.myAttationContent{display: flex;width: 82%;font-size: 30rpx; border-bottom:1px solid #eeeeee; }
+.myAttationContent_name{font-weight: bold;}
+.myAttationContent_text{width: 80%; color: #666666}
+.myAttationContent_text view{padding: 5px;}
+.myAttationContent_btn{width: 20%;line-height: 120rpx;}
+.myAttationContent_btn text{padding: 5px;font-size: 26rpx;}
+.attationed{background-color: #eeeeee;border-radius:10px; color:#666666;width: 100rpx;display: block;line-height:40rpx;
+height:40rpx;text-align: center;}
+/* 加载 */
+.loading{padding: 10rpx; text-align: center;font-size: 14px;}
+.loading:before{display: inline-block;margin-right: 5rpx;vertical-align: middle;content: ''; width: 40rpx;
+  height: 40rpx;/* background: url(../../images/icon-loading.png) no-repeat; */background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+.loading.complete:before{ display: none;}
+.attation{background-color: #1fb1f5;border-radius:10px; color:#fff;width: 100rpx;display: block;line-height:40rpx;
+height:40rpx;text-align: center;}
+.nav-title {text-align:center;}

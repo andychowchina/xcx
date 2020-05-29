@@ -1,0 +1,17 @@
+@import "../dynamicInfo/dynamicInfo.wxss";
+@import "../../app.wxss";
+/* 精选评论 */
+.title {
+  background: #eee;
+  padding: 10rpx 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #999;
+}
+.headPhoto image{width: 80rpx;height: 80rpx;}
+.commentUser{display: flex;padding:10rpx 60rpx;}
+.commentUserFunction{display: flex;font-size:22rpx;color:#999999;padding:10rpx 60rpx;}
+.content{margin-top: -12rpx;}
+/* .mgg_10{margin-top: 30rpx;} */
+.recordName{color: #199ed8}
+.pinLunDianzan {margin-top: 0px;}

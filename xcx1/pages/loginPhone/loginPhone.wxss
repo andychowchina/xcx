@@ -1,0 +1,104 @@
+.login {
+  padding: 40rpx;
+}
+
+.title {
+  margin-top: 50rpx;
+}
+.loginPhone{
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #666;
+  position: relative;
+}
+.loginPhoneWord{
+  padding: 30rpx 0;
+}
+.loginPhoneCont{
+  display: flex;
+  line-height: 56rpx;
+}
+.loginPhoneCont>text{
+  width: 70rpx;
+  margin: 0 30rpx;
+}
+.loginPhoneCont>input{
+  flex: 1;
+  padding-left: 10rpx;
+}
+/* 那个x */
+.clear{
+  width: 30rpx;
+  height: 30rpx;
+  text-align: center;
+  line-height: 25rpx;
+  background: #ddd;
+  color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  right: 10rpx;
+  bottom: 35rpx;
+  z-index: 10;
+}
+.loginPhoneCont>text,.loginPhoneCont>input{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20rpx;
+}
+/* 立即验证按钮 */
+.bottom {
+  margin-top: 100rpx;
+  border-radius: 10rpx;
+  font-size: 35rpx;
+  color: #fff!important;
+}
+.phoneError{
+  background: rgb(220, 220, 220)!important;
+}
+.phoneRight{
+  background: #f1d089!important;
+}
+
+/* 验证部分 */
+.showPhone{
+  font-size: 30rpx;
+  color: #666;
+  margin-top: 30rpx;
+}
+.loginCode{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+  text-align: center;
+}
+.loginCode>input{
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+  margin: 0 10rpx;
+}
+.codeFooter{
+  font-size: 30rpx;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+.codeFooter>text{
+  vertical-align: middle;
+  line-height: 60rpx;
+}
+.sengCode{
+  border: 1px solid #ddd;
+  padding: 10rpx 30rpx;
+}
+.sendIng{
+  background: #fff;
+}
+.Resend{
+  background: #f1d089;
+  color: #fff;
+}
+/* 伪输入框 */
+.ipt{ 
+  width: 0; 
+  height: 0; 
+ } 

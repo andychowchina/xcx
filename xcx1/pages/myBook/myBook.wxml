@@ -1,0 +1,38 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class='top_tab' style='top:{{navH}}px'>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item {{crrentTabsIndex == '0'?'active':''}}" data-index="0" bindtap='swichNav'>待确认</view>
+    <view class="flex-item {{crrentTabsIndex == '1'?'active':''}}" data-index="1" bindtap='swichNav'>已确认</view>
+    <view class="flex-item {{crrentTabsIndex == '2'?'active':''}}" data-index="2" bindtap='swichNav'>已关闭</view>
+  </view>
+</view>
+
+<view style='margin-top:{{navH+30}}px'>
+  <scroll-view class='bookList' wx:if="{{serviceInfo.length>0}}" >
+    <view wx:for="{{serviceInfo}}" wx:for-item="item" wx:key="key">
+      <view class='bookInfo' data-serviceid="{{item.SMALL_SERVICE_ID}}" bindtap='getServiceInfo' >
+        <view class='bookInfo_image'>
+          <image src='{{serviceManagerUrl}}{{item.LOGO}}' mode="scaleToFill"></image>
+        </view>
+        <view class='bookInfo_text'>
+          <view>{{item.SERVICE_NAME}}</view>
+          <view wx:if="{{item.YYZT=='0'}}">
+            <text class='status {{(statusVlus==0)?"booking":"finish"}}'>待确认</text>
+          </view>
+          <view wx:elif="{{item.YYZT=='1'}}">
+            <text class='status {{(statusVlus==0)?"booking":"finish"}}'>已确认</text>
+          </view>
+          <view wx:else>
+            <text class='status {{(statusVlus==0)?"booking":"finish"}}'>已关闭</text>
+          </view>
+          <view>{{item.ADDDATE}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view style='margin-top:30px;font-size:14px;'>
+    <view class="loading  {{searchLoading?'':'hide'}}">正在加载...</view>
+    <view class="loading complete  {{searchLoadingComplete?'':'hide'}}">已加载全部</view>
+  </view>
+</view>

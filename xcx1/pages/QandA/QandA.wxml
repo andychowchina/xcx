@@ -1,0 +1,71 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+<icon class='back iconfont icon-fanhui 'bindtap='navBack'></icon>
+    <view class='nav-title'>
+        爱服务
+    </view>
+  </view>
+<view class='top_tab ' style='top:{{navH}}px' >
+   <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item active">推荐</view>
+    <view class="flex-item">动态</view>
+    <view class="flex-item">活动</view>
+    <view class="flex-item">案例</view>
+    <view class="flex-item">问答</view>
+  </view>
+</view> 
+<!--首页推荐内容-->
+<view class='content'>
+  <scroll-view>
+    <!--首页企业问答内容-->
+    <view class='question_content' wx:for="{{answerList}}">
+      <view class='question_content_title'>提问</view>
+      <!--首页企业问答动态头部信息-->
+      <view class='info flex-wrp' style="flex-direction:row;">
+        <view class="flex-item headPhoto"><image src='{{item.userImg}}' mode='scaleToFill'></image></view>
+         <view class="flex-item NickName">
+          <view class='nickName'>{{item.userNickName}}</view>
+        </view>
+         <view class="flex-item InfoDate">
+          <view class='baseInfo'>{{item.userInfoDate}}</view>
+        </view>
+      </view>
+      <view class='fwal_content_text'>提问</view>
+      <view class='question_content_function'>
+        <view class='question_content_follow'>
+          <view class='text'><text>16</text>关注</view>
+          <view class='button'><button>关注问题</button></view>
+        </view>
+        <view class='question_content_hotQuestion'>
+          <view class='text'><text>16</text>回答</view>
+          <view class='button'><button>热门回答</button></view>
+        </view>
+      </view>
+    </view>
+     
+    <view class='section answer_content' wx:for='{{answerList}}' >
+      <!--首页企业问答动态头部信息-->
+      <view class='info flex-wrp' style="flex-direction:row;">
+        <view class="flex-item headPhoto"><image src='{{item.userImg}}' mode='scaleToFill'></image></view>
+         <view class="flex-item dtInfo">
+          <view class='nickName'>{{item.userNickName}}</view>
+          <view class='baseInfo'><text >{{item.userInfoDate}}</text></view>
+        </view>
+    </view>
+    <view class='fwal_content_text'>回答</view>
+      <!--动态底部工具栏-->
+      <view class='content_function'>
+        <view class='liuyan'><image src='../image/comment.png' mode='widthFix'></image><text>999</text></view>
+        <view class='dianzhan'><image src='../image/noLove.png' mode='widthFix'></image><text>999</text></view>
+        <view class='zhuanfa' ><button open-type="share"><image src='../image/share.png' mode='widthFix'></image><text>999</text></button></view> 
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!--底部功能栏-->
+<view class='bottom_tab'>
+   <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item"><image src='../image/input.png' mode='widthFix' ></image>添加回答</view>
+    <view class="flex-item"><button open-type="share"><image src='../image/share.png' mode='widthFix'></image><text>邀请问答</text></button></view>
+  </view>
+</view> 

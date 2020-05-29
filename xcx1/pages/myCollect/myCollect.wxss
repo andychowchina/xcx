@@ -1,0 +1,141 @@
+/* pages/myCollect/myCollect.wxss */
+@import "../myPublish/myPublish.wxss";
+@import "../../app.wxss";
+page {
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.containers {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.userBaseInfo view {
+  font-size: 26rpx;
+}
+
+.active {
+  color: #0093d4 !important;
+}
+.loading{
+  padding: 10rpx;
+  text-align: center;
+  background:#fff;
+  font-size: 28rpx;
+}
+.top_tab {
+  height: 70rpx;
+  position: fixed;
+  top: 130rpx;
+  z-index: 222;
+}
+
+.top_tab .flex-item {
+  line-height: 70rpx;
+}
+
+.flex-wrp {
+  flex-direction: row;
+  padding: 0 20%;
+  border-radius: 20rpx;
+}
+
+.top_tab .flex-item {
+  width: 33%;
+  text-align: center;
+}
+
+/* //服务 */
+
+.ServiceItem {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1.1em;
+  border-bottom: 1rpx solid #eaeaea;
+  position: relative;
+  background: #fff;
+  padding: 10rpx 10rpx;
+  margin-top: 10rpx;
+}
+
+.hotBooks-left__image {
+  float: left;
+  border-radius: 4rpx;
+  margin-left: 30rpx;
+}
+
+.hotBooks-left__image image {
+  width: 41px;
+  height: 26px;
+  margin-top: 10%;
+  border: 1px solid #ccc;
+}
+
+.serviceName {
+  font-size: 28rpx;
+}
+
+.coop_name {
+  font-size: 22rpx;
+  color: #0092d4;
+}
+
+.hotBooks-right {
+  margin-left: 25rpx;
+  padding: 0 0 10rpx 5rpx;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detailS {
+  color: #999;
+  width: 25%;
+  font-size: 22rpx;
+  position: absolute;
+  right: 0;
+  top: 10rpx;
+  text-align: center;
+}
+
+.detailS icon {
+  font-size: 22rpx;
+}
+
+.serviceInfo {
+  width: 65%;
+}
+
+.requestContent {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  padding: 0 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.containers .tab-nav {
+  display: flex;
+}
+
+.tab-nav .item {
+  flex: 1;
+  padding: 18rpx 0;
+  text-align: center;
+}
+.containers .content{
+  flex: 1;
+  margin-top:90rpx;
+  margin-bottom: 0;
+}
+.containers .content swiper,.containers .content swiper swiper-item,.containers .content swiper swiper-item scroll-view{
+  height: 100%;
+}
+.containers .content swiper swiper-item scroll-view{
+  box-sizing: border-box;
+}

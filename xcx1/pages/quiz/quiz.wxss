@@ -1,0 +1,5 @@
+@import '../index/index.wxss';
+@import "../../app.wxss";
+@import "../publicDt/publicDt.wxss";
+.publish_Question_title{border-top: 1px solid #eeeeee;border-bottom:1px solid #eeeeee; background-color: #ffffff;padding: 10px;}
+.publish_Question_title input{font-size: 30rpx;}

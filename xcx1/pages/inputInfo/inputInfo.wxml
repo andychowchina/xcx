@@ -1,0 +1,63 @@
+<view class="content">
+<view class="index_bg">
+  <image src="../image/index_bg.jpg" mode="widthFix"></image>
+</view>
+  <view class="show_title">填写详细信息</view>
+  <!--已查询到企业信息-->
+  <view class="show_center">
+    <view class="input_info ">
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">所属税务机关:</view>
+          <view class="flex-item cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+        <view class="flex-wrp">
+          <view class="flex-item cus_title">法人:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到法人请手动输入"/></view>
+       </view>
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">行业类型:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">注册资金:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到注册资金请手动输入"/></view>
+       </view>
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">管辖人:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+        <view class="flex-wrp">
+          <view class="flex-item cus_title">选择县市:</view>
+          <view class="flex-item  cus_content">
+         <picker mode="region" bindchange="bindRegionChange" value="{{region}}" >
+             <view class="picker">
+                 {{region[0]}}{{region[1]}}{{region[2]}}
+            </view>
+          </picker>
+          </view>
+       </view>
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">详细地址:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+       <view class="flex-wrp">
+          <view class="flex-item cus_title">电话:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+         <view class="flex-wrp">
+          <view class="flex-item cus_title">联系人:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+         <view class="flex-wrp">
+          <view class="flex-item cus_title">分机号:</view>
+          <view class="flex-item  cus_content"><input class="weui-input"   placeholder="未查询到企业信息请手动输入"/></view>
+       </view>
+    </view>
+      <view class="flex-item next_step">
+        <button bindtap="confirmInfo">办理新户</button>
+      </view>
+    <!--未查询企业信息显示界面-->
+     <view class="show_text {{showflag?'hide':'show'}}">
+     </view>
+  </view> 
+</view>

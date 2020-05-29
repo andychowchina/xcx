@@ -1,0 +1,73 @@
+<!-- 精选评论 -->
+<template name="jingxuanComment">
+	<view>
+		<view class='info flex-wrp rmpl_img' bindtap='showUserInfo' data-userId='{{item.USER_ID}}'>
+			<view class="flex-item headPhoto">
+				<image class='img_dx' src='{{item.HEAD_SCULPTURE}}' mode='scaleToFill' style="width: 60rpx;height: 60rpx;"></image>
+			</view>
+			<view class="flex-item dtInfo mgl_10">
+				<view class='nickName mgg_10'>{{item.NICKNAME}}</view>
+			</view>
+		</view>
+		<!--评论体start  -->
+
+		<view class='info flex-wrp' style="flex-direction:row;">
+			<view class="flex-item dtInfo">
+				<view class='nickName hfxx'>{{item.CONTENT}}</view>
+				<view class='baseInfo text_l_26'>
+					<view class='pinLundate'>
+						<text>{{item.CREATE_DATE}}</text>
+						<!-- <text style="margin-left:15rpx" bindtap="bindAnswer" data-commentId='{{item.ID}}' data-header='{{item.HEAD_SCULPTURE}}' data-nickname='{{item.NICKNAME}}' data-content='{{item.CONTENT}}' data-date='{{item.CREATE_DATE}}' data-praisenumber='{{item.PRAISE_COUNT}}'
+              data-replyUserId='{{item.USER_ID}}' data-userid='{{item.USER_ID}}'  wx:if="{{item.COMMENT_COUNT!=='0'}}">{{item.COMMENT_COUNT}}回复</text> -->
+					</view>
+					<view class="seeAns" bindtap="bindAnswer" data-commentId='{{item.ID}}' data-userid='{{item.USER_ID}}' wx:if="{{item.COMMENT_COUNT!=='0'}}">查看{{item.COMMENT_COUNT}}条回复</view>
+					<view class='pinLunNum' bindtap='write' data-type="show" data-replyuserid='{{item.USER_ID}}' data-isthrcomm="y" data-id='{{item.ID}}' data-isusercomment='1'>
+						<icon class='iconfont icon-xiaoxi'></icon>
+					</view>
+					<view class='pinLunDianzan' data-commentId='{{item.ID}}' bindtap='userCommentPraise' data-dianzanid='{{index}}'>
+						<icon class='iconfont icon-dianzan {{praiseList[index].isPraise=="Y"?"praised":""}}'></icon>
+						<text>{{praiseList[index].praiseNumber}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+<!-- 评论 -->
+<template name="pinlunInfo">
+	<view>
+		<view class='info flex-wrp rmpl_img' bindtap='showUserInfo' data-userId='{{item.USER_ID}}'>
+			<view class="flex-item headPhoto">
+				<image class='img_dx' src='{{item.HEAD_SCULPTURE}}' mode='scaleToFill' style="width: 60rpx;height: 60rpx;"></image>
+			</view>
+			<view class="flex-item dtInfo mgl_10">
+				<view class='nickName mgg_10'>{{item.NICKNAME}}</view>
+			</view>
+		</view>
+		<!--评论体start  -->
+
+		<view class='info flex-wrp' style="flex-direction:row;">
+			<view class="flex-item dtInfo">
+				<!-- <view class='nickName hfxx' wx:if='{{(item.R_NC!=item.NICKNAME)&&(item.IS_USER_COMENT=="1")}}' wx:key="index">
+          <text class='recordName' bindtap='showUserInfo' data-userid='{{item.R_USER_ID}}'>@{{item.R_NC}}</text>:{{item.CONTENT}}</view>
+        <view class='nickName hfxx' wx:else>{{item.CONTENT}}</view> -->
+				<!-- <view class='nickName hfxx' wx:key="index">
+					<text class='recordName' bindtap='showUserInfo' data-userid='{{item.R_USER_ID}}'>@{{item.R_NC}}</text>:{{item.CONTENT}}</view> -->
+				<view class='nickName hfxx'>{{item.CONTENT}}</view>
+				<view class='baseInfo text_l_26'>
+					<view class='pinLundate'>
+						<text>{{item.CREATE_DATE}}</text>
+					</view>
+					<view class="seeAns" bindtap="bindAnswer" data-commentId='{{item.ID}}' data-userid='{{item.USER_ID}}' wx:if="{{item.COMMENT_COUNT!=='0'}}">查看{{item.COMMENT_COUNT}}条回复</view>
+					<view class='pinLunNum' bindtap='write' data-isthrcomm="y" data-id='{{item.ID}}' data-type="show" data-replyUserId='{{item.USER_ID}}' data-isusercomment='1'>
+						<icon class='iconfont icon-xiaoxi'></icon>
+					</view>
+					<view class='pinLunDianzan' data-commentId='{{item.ID}}' bindtap='userCommentPraise' data-dianzanid='{{index}}'>
+						<icon class='iconfont icon-dianzan {{praiseList[index].isPraise=="Y"?"praised":""}}'></icon>
+						<text>{{praiseList[index].praiseNumber}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

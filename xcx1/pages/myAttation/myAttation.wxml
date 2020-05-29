@@ -1,0 +1,26 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+
+<view style='margin-top:{{navH}}px'>
+  <scroll-view wx:for="{{myAttation}}" wx:for-ietm="item" wx:key="attation">
+    <view class='myAttation'>
+      <view class='myAttationImg'>
+        <image src='{{item.HEAD_SCULPTURE}}' mode="aspectFill" bindtap='showUserInfo' data-userid='{{item.ID}}'></image>
+      </view>
+      <view class='myAttationContent'>
+        <view class='myAttationContent_text' bindtap='showUserInfo' data-userid='{{item.ID}}'>
+          <view class='myAttationContent_name'>{{item.NICKNAME}}</view>
+          <view>{{item.INTERVIEW}}</view>
+        </view>
+        <view class='myAttationContent_btn ' wx:if="{{attationList[index].isAttation == 'Y'}}">
+          <text class='attationed' data-index="{{index}}" data-uid="{{item.ID}}" bindtap='attation'>已关注</text>
+        </view>
+        <view class='myAttationContent_btn ' wx:else>
+          <text class='attation' data-index="{{index}}" data-uid="{{item.ID}}" bindtap='attation'>关注</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="loading  {{searchLoading?'':'hide'}}">正在加载...</view>
+  <view class="loading complete  {{searchLoadingComplete?'':'hide'}}">已加载全部</view>
+</view>

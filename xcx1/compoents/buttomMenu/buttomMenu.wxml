@@ -1,0 +1,78 @@
+  <!--发布按钮-->
+<view class='button_publish'>
+  <view class='publishBtn' animation="{{animationDT}}" bindtap='jumpPublicDt' data-type='1'>
+    <view class='publishDt '>
+      <icon class='iconfont icon-dongtai btnImage'></icon>
+      <view class='btnText'>动态</view>
+    </view>
+  </view>
+  <view class='publishBtn ' animation="{{animationHd}}" bindtap='publicAlAndHd' data-type='2'>
+    <view class='publishHd '>
+      <icon class='iconfont icon-anli btnImage'></icon>
+      <view class='btnText'>案例</view>
+    </view>
+  </view>
+  <view class='publishBtn ' animation="{{animationAl}}" bindtap='publicAlAndHd' data-type='3'>
+    <view class='publishAl '>
+      <icon class='iconfont icon-huodong btnImage'></icon>
+      <view class='btnText'>活动</view>
+    </view>
+  </view>
+  <view class='publishBtn ' animation="{{animationWd}}" bindtap='jumpPublicTw' data-type='4'>
+    <view class='publishWd '>
+      <icon class='iconfont icon-wenda btnImage'></icon>
+      <view class='btnText'>提问</view>
+    </view>
+  </view>
+  <view class='publishBtn ' animation="{{animationFx}}" bindtap='jumpPublicFx' data-type='5'>
+    <view class='publishFx '>
+      <icon class='iconfont icon-fenxiang2 btnImage'></icon>
+      <view class='btnText'>分享</view>
+    </view>
+  </view>
+</view>
+<!--底部功能栏-->
+<view class='bottom_tab'>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class=" flex-item  {{isSelect==0?'active':''}}" data-url='../index/index' bindtap='indexSwitchTab' data-num='0'>
+      <view>
+        <icon class='iconfont icon-shouye'></icon>
+      </view>
+      <view>
+        <text>首页</text>
+      </view>
+    </view>
+    <view class="flex-item {{isSelect==1?'active':''}}" data-url='../service/service?selectServeice=false' bindtap='indexSwitchTab' data-num='1'>
+      <view>
+        <icon class='iconfont icon-grid'></icon>
+      </view>
+      <view>
+        <text>服务</text>
+      </view>
+    </view>
+    <!-- <view class="flex-item">
+      <view class='publish' bindtap='showPublishBtn' data-type='{{publishType}}'>{{publishText}}</view>
+    </view> -->
+    <view class="flex-item {{isSelect==2?'active':''}}" data-url='../message/message' bindtap='indexSwitchTab' data-num='2'>
+      <view>
+        <view>
+          <icon class='iconfont icon-buoumaotubiao14'></icon>
+        </view>
+        <view>
+          <text class="message">消息</text>
+          <span class="message_prompt" wx:if="{{messageDate>0}}"></span>
+        </view>
+      </view>
+    </view>
+    <view class="flex-item {{isSelect==3?'active':''}}" data-url='../myInfo/myInfo' bindtap='indexSwitchTab' data-num='3'>
+      <view>
+        <icon class='iconfont icon-addressbook'></icon>
+      </view>
+      <view>
+        <text>我的</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!--弹出页面底部模板-->
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtap='showPublishBtn' data-type='hide'></view>

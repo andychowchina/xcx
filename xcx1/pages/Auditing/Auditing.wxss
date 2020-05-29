@@ -1,0 +1,5 @@
+@import "../cooperative/cooperative.wxss";
+@import "../../app.wxss";
+.icon{text-align: center;margin-top: 40px;}
+.title{text-align: center;font-size: 48rpx;font-weight: bold;margin-top: 25px;}
+.text{text-align: center;font-size:30rpx;margin-top: 10px;color: #999999}

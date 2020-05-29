@@ -1,0 +1,21 @@
+@import "../../app.wxss";
+
+
+page{background-color: #eeeeee;}
+.companyTab{text-align: center;padding:15px 0px; font-size: 30rpx;}
+.companyTab span{width: 25rpx;height: 25rpx; display: inline-block;background-color:#999999;border-radius: 50%;margin: 0px 5px; line-height: 1.4rem;}
+.active{background-color:#0099CC!important;}
+.companyInfo{background-color: #ffffff;}
+
+.companyInfo view{font-size:32rpx;border-bottom:1px solid #eeeeee; padding: 10px 0px 10px 10px;display: flex;}
+.companyInfo input{width: 85%;}
+.companyInfo label{display: inline-block;width: 25%;line-height: 1.4rem;}
+picker{width: 85%;}
+.picker{border-bottom: 0px!important;padding: 0px!important;line-height: 1.4rem;}
+
+.companyInfo  button{ width: 85%;display:inline;font-size:32rpx;text-align: left;padding: 0px;outline:0 none;
+z-index: 99;background-color:transparent;color: #666666;line-height: 22px;}
+button::after{border:none;border-radius:0;}
+
+.btn{margin: 40px 10px 0px 10px;text-align: center;background-color: rgba(9, 187, 7, 1);color: #ffffff;
+letter-spacing: 10px;padding: 10px 0px;border-radius:5px; }

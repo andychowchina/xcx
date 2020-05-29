@@ -1,0 +1,33 @@
+<!-- <view wx:if="{{canIUse}}">
+    <view class='header'>
+        <image src='../../image/wx_login.png' mode='aspectFit'></image>
+    </view>
+ 
+    <view class='content'>
+        <view>申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+ 
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+</view> -->
+<view wx:if="{{canIUse}}" class="login">
+    <view class="title">登录账号</view>
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getPhoneNumber">
+        授权登录
+    </button>
+    <!-- <button class='bottom' type='primary' open-type="getPhoneNumber"  lang="zh_CN" bindgetphonenumber="getPhoneNumber"> 
+        获取手机号码
+    </button> -->
+    <view class="loginPhone"> 
+        <view class="loginPhoneWord">或手机号登录</view>
+        <view class="loginPhoneCont">
+            <text>+86</text>
+            <input placeholder="请输入手机号码" disabled="false" bindtap="loginPhone"></input>
+            <text>></text>
+        </view>
+    </view>
+</view>
+ 
+<view wx:else>请升级微信版本</view>

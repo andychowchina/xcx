@@ -1,0 +1,32 @@
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<view class='publish_input_title' style='margin-top:{{navH}}px'>
+  <view class='cancel' bindtap='cancel'>取消</view>
+  <text>设置基本信息 </text>
+  <view class='submit {{issubmit>0?"action":""}}' bindtap='{{issubmit?"submit":""}}'>完成</view>
+</view>
+<view class='myBaseInfo'>
+  <view class='myBaseInfo_text'>
+    <label>真实姓名：</label>
+    <input type='text' placeholder='请输入真实姓名' maxlength="10" bindinput='inputName' value='{{name}}'></input>
+  </view>
+  <view class='myBaseInfo_text'>
+    <label>昵称</label>
+    <input type='text' placeholder='请输入昵称' maxlength="10" bindinput='inputNickname' value='{{nickname}}'></input>
+  </view>
+  <view class='myBaseInfo_text'>
+    <label>电话：</label>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if="{{telType=='get'}}">{{phoneNumber?phoneNumber:'点击获取电话'}}</button>
+    <input type='number' placeholder='请输入电话' maxlength="11" bindinput='inputTel' value='{{phoneNumber}}' wx:if="{{telType=='input'}}"></input>
+  </view>
+  <view class='myBaseInfo_text'>
+    <label>公司名称：</label>
+    <input type='text' placeholder='请输入公司名称' bindinput='inputCustName' value='{{custName}}'></input>
+  </view>
+  <view class='myBaseInfo_text'>
+    <label>自我介绍：</label>
+    <input type='text' placeholder='请输入自我介绍(25个字符)' bindinput='inputInterview' value='{{interview}}' maxlength="25"></input>
+    <text class="inputNumber">{{inputNumber}}/25</text>
+  </view>
+</view>

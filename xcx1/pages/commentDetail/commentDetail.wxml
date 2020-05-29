@@ -1,0 +1,46 @@
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<!--首页推荐内容-->
+<scroll-view style='margin-top:{{navH}}px'>
+  <view class='content'>
+    <!--头部资讯-->
+    <view class='section dt'>
+      <block wx:for="{{informationList}}" wx:key="index" wx:if="{{informationList.length}}">
+        <template is="zxInfo" data="{{item:item,index:index,praiseList:praiseList}}"></template>
+      </block>
+      <!--头部资讯结束-->
+      <view class='content_function_r'>
+        <view class='rmpl' bindtap='back'>{{commentList.length}}条回复</view>
+        <!-- 每一个评论卡片 -->
+        <view class="itemBox">
+          <block wx:for="{{commentList}}" wx:for-index="index" wx:key="index">
+            <template is="pinlunInfo" data="{{item:item,index:index,thrPraiseList:thrPraiseList}}"></template>
+          </block>
+        </view>
+        <view class='nodata' wx:if="{{commentList.length==0}}">当前暂无评论</view>
+        <!--评论体end  -->
+      </view>
+      <!--评论内容end  -->
+    </view>
+  </view>
+  <view class='loadMore'>没有更多内容了。。。</view>
+</scroll-view>
+
+
+<!-- 写评论 -->
+<view class="flexBtn" wx:for="{{commentList}}" wx:if="{{commentList.length!=0}}" wx:key="index">
+  <view class='myInfo_function_text inputBtn' style="width:100%" bindtap='write' data-type="show" data-isthrcomm="y" data-commentId='{{item.ID}}' data-replyUserId='{{item.WX_USER_ID}}'>
+    <text>评请输入论...</text>
+  </view>
+</view>
+<!--弹出评论-->
+<view class='junpComment {{isShow==false?"hide":""}}'>
+  <textarea placeholder='友善的评论是交流的起点!' cursor-spacing="40" focus="{{focus}}" auto-height maxlength='100' fixed="true" show-confirm-bar="{{disable}}" bindinput='getInputComment' value='{{inputText}}'></textarea>
+  <view bindtap='addInformationComment'>
+    <text></text>
+    <text>发送</text>
+  </view>
+</view>
+
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtouchmove='write' bindtap='write' data-type='hide'></view>

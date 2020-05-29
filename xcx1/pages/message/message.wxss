@@ -1,0 +1,14 @@
+/*提问头部的输入框*/
+@import "../../app.wxss";
+@import "../isAttentionQuestion/isAttentionQuestion.wxss";
+.nav-title{text-align:left}
+.Headportrait{border-radius:0;line-height:80rpx}
+.Headportrait icon{font-size:65rpx}
+.iconfont{font-size:65rpx}
+.questionList{margin:20rpx}
+.gq{background:#eee;width:100%;height:10rpx}
+.message{border:1px solid red;width:14rpx;height:14rpx;position:absoulte;right:0;top:0;background:red;border-radius:50%;float:right;margin-top:-80rpx}
+.questionList_box{line-height:84rpx;text-align:left}
+.button_kefu{padding:0;display:flex;width:100%;height:100%;background:#fff!important}
+.button-hover{color:#000;background:#fff}
+.button_kefu text{font-size:30rpx;position:relative;display:block;width:90%;text-align:left;border-bottom:1px solid #ccc}

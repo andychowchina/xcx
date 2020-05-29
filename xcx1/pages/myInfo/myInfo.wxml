@@ -1,0 +1,111 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+	<view class='nav-title'>
+		爱服务
+	</view>
+</view>
+<view class='my' id="my" style='margin-top:{{navH}}px'>
+	<view class='myInfo'>
+		<image src='../../image/myBgimage.jpg' mode='scaleToFill' class='myInfo_bg'></image>
+		<view class='myInfo_content'>
+			<view class='myInfo_photo'>
+				<view class='image' wx:if="{{userid}}">
+					<open-data type="userAvatarUrl"></open-data>
+				</view>
+				<view class='image' wx:if="{{!userid}}">
+					<view style="height: 50px;background: #fff;"></view>
+				</view>
+			</view>
+			<view class='myInfo_text'>
+				<view wx:if="{{userid}}">
+					<!-- <view wx:if="{{!updataNickName}}">
+            <open-data type="NICKNAME" lang="zh_CN"></open-data>
+          </view>
+          <view wx:else>
+            <view>{{updataNickName}}</view>
+          </view> -->
+					<view>
+            {{nickName}}
+					</view>
+				</view>
+				<view wx:if="{{!userid}}">
+					<view>昵称</view>
+				</view>
+			</view>
+			<view class='completeMyInfo'>
+				<text bindtap='jumpMyBaseInfo'>完善信息</text>
+			</view>
+			<view class='completeMyInfoFunction'>
+				<view>
+					<text>{{dtNumber?dtNumber:0}}</text>
+					<text>动态</text>
+				</view>
+				<view>
+					<text>{{gzNumber?gzNumber:0}}</text>
+					<text>关注</text>
+				</view>
+				<view>
+					<text>{{fansNumber?fansNumber:0}}</text>
+					<text>粉丝</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='myInfo_function'>
+		<view class='myInfo_function_text' bindtap='jumpMy' data-url='../myPublish/myPublish'>
+			<view>
+				<icon class='iconfont icon-wenhao'></icon>
+			</view>
+			<view>
+				<text>我的提问</text>
+			</view>
+		</view>
+		<view class='myInfo_function_text' bindtap='jumpMy' data-url='../myBook/myBook'>
+			<view>
+				<icon class='iconfont icon-zi'></icon>
+			</view>
+			<view>
+				<text>我的回答</text>
+			</view>
+		</view>
+		<view class='myInfo_function_text' bindtap='jumpMy' data-url='../myCollect/myCollect'>
+			<view>
+				<icon class='iconfont icon-taoxin'></icon>
+			</view>
+			<view>
+				<text>我的收藏</text>
+			</view>
+		</view>
+		<view class='myInfo_function_text' bindtap='jumpMy' data-url='../myAttation/myAttation'>
+			<view>
+				<icon class='iconfont icon-shape22'></icon>
+			</view>
+			<view>
+				<text>我的关注</text>
+			</view>
+		</view>
+		<view class='myInfo_function_text' bindtap='attentionQuestion'>
+			<view>
+				<icon class='iconfont icon-guanzhu'></icon>
+			</view>
+			<view>
+				<text>关注的问题</text>
+			</view>
+		</view>
+	</view>
+	<view class='my_function'>
+		<!-- <view bindtap='attentionQuestion' style="padding-top:40rpx;">
+      <icon class='iconfont icon-guanzhu'></icon>
+      <text>关注的问题</text>
+    </view> -->
+		<view bindtap='cooperative' style="padding-top:40rpx;">
+			<icon class='iconfont icon-dianpu'></icon>
+			<text>服务商入住</text>
+		</view>
+		<button open-type="{{contactType}}" class="button_kefu" bindtap="openContact">
+			<icon class='iconfont icon-fankui'></icon>
+			<text class="message">功能建议</text>
+		</button>
+		<!-- <view><icon class='iconfont icon-yijianfankui01'></icon><text>功能建议</text></view> -->
+	</view>
+</view>
+<buttomMenu id="buttomMenu" isSelect="3"></buttomMenu>

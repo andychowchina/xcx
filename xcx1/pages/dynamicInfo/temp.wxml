@@ -1,0 +1,64 @@
+<!--评论详细页-->
+<template name="pinlunInfo">
+  <view class='info flex-wrp rmpl_img'>
+    <view class="flex-item headPhoto" bindtap='showUserInfo' data-userid='{{item.WX_USER_ID}}'>
+      <image class='img_dx' src='{{item.HEAD_SCULPTURE}}' mode='scaleToFill'></image>
+    </view>
+    <view class="flex-item dtInfo mgl_10" bindtap='showUserInfo' data-userid='{{item.WX_USER_ID}}'>
+      <view class='nickName mgg_10'>{{item.NICKNAME}}</view>
+      <view class='pinLundate mgg_10'>{{item.CREATE_DATE}} 回答</view>
+    </view>
+    <button class='{{item.IS_ATTENTION=="Y"?"attented":"gz"}}' data-index="{{index}}" bindtap='clickHandle' data-coveruserid='{{item.WX_USER_ID}}' wx:if='{{useCode!=item.WX_USER_ID}}'>{{item.IS_ATTENTION=="Y"?"已关注":"关注"}}</button>
+  </view>
+  <!--评论体start  -->
+
+  <view class='info flex-wrp' style="flex-direction:row;">
+    <view class="flex-item dtInfo">
+      <view class='hfxx' bindtap='showUserComment' data-commentId='{{item.ID}}'>
+        <view>{{item.CONTENT}}</view>
+        <view class='dt_content_img'>
+          <block wx:for="{{item.IMG_URL}}" wx:for-index="idx" wx:for-item="Image" wx:key="index">
+            <view class='onlyImg' wx:if='{{item.IMG_URL.length == 1}}'>
+              <image src='{{Image.Imageurl}}' mode='widthFix' bindtap='showBigPicture' data-src='{{Image.Imageurl}}' data-list='{{item.IMG_URL}}'></image>
+            </view>
+            <view class='moreImg' wx:elif='{{item.IMG_URL.length > 1}}'>
+              <image src='{{Image.Imageurl}}' mode='aspectFill' bindtap='showBigPicture' data-src='{{Image.Imageurl}}' data-list='{{item.IMG_URL}}'></image>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='dt_content_img'>
+    <block wx:for="{{item.infoImg}}" wx:for-index="idx" wx:for-item="Image" wx:key="index">
+      <view class='onlyImg' wx:if='{{item.infoImg.length==1}}'>
+        <image src='{{Image.IMG_URL}}' mode='widthFix' bindtap='showBigPicture' data-src='{{Image.IMG_URL}}' data-list='{{imageList}}'></image>
+      </view>
+      <view class='moreImg' wx:elif='{{item.infoImg.length>1}}'>
+        <image src='{{Image.IMG_URL}}' mode='aspectFill' bindtap='showBigPicture' data-src='{{Image.IMG_URL}}' data-list='{{imageList}}'></image>
+      </view>
+    </block>
+  </view>
+</template>
+<template name="pinlunInfoComment">
+  <view>
+    <view class='info flex-wrp rmpl_img'>
+      <view class="flex-item headPhoto" bindtap='showUserInfo' data-userid='{{item.WX_USER_ID}}'>
+        <image class='img_dx' src='{{item.HEAD_SCULPTURE}}' mode='scaleToFill' style="width:70rpx;height:70rpx;margin-top: 10rpx;"></image>
+      </view>
+      <view class="flex-item dtInfo mgl_10" bindtap='showUserInfo' data-userid='{{item.WX_USER_ID}}'>
+        <view class='nickName mgg_10' style='font-size:28rpx;'>{{item.NICKNAME}}</view>
+        <!-- <view class='pinLundate mgg_10' style='font-size:22rpx;'>{{item.CREATE_DATE}} 回答</view> -->
+      </view>
+      <view class='pinLunDianzan ' data-commentId='{{item.ID}}' bindtap='userCommentPraise' data-dianzanid='{{index}}'>
+        <icon class='iconfont icon-dianzan1 {{praiseList[index].isPraise=="Y"?"praised":""}}'></icon>
+        <text>{{praiseList[index].praiseNumber}}</text>
+      </view>
+    </view>
+    <view class='info flex-wrp' style="flex-direction:row;">
+      <view class="flex-item dtInfo">
+        <view class='nickName hfxx'>{{item.CONTENT}}</view>
+      </view>
+    </view>
+  </view>
+</template>

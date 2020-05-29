@@ -1,0 +1,35 @@
+@import '../index/index.wxss';
+@import "../../app.wxss";
+
+page{background-color: #F9F9F9;}
+.publish_title textarea{height: 20px;padding: 10px 0;font-size: 16px;background-color: #ffffff;width: 90%;margin: auto;border-bottom: 1px solid #D9D9D9;}
+.publish_input textarea{height: 55px;padding: 10px 0;font-size: 15px;background-color: #ffffff;width: 90%;margin: auto;}
+::-webkit-scrollbar { display: none;}
+.publish_image{padding-bottom:10px;background-color: #ffffff;width: 90%;margin: auto;border-bottom:1px solid #D9D9D9;}
+.publish_image_add{display: inline-block;width:80px;height: 80px;background-color: #F2F2F2; color: #8B8B8B;text-align: center;line-height: 75px;font-size:50px;border:1px solid #D9D9D9;border-radius:5px;}
+.dt_content_img{padding: 0px;}
+.publish_position{border-top:1px solid hsl(0, 0%, 93%);border-bottom:1px solid #eeeeee;padding:5px 10px;background-color: #ffffff;}
+form{height: auto;}
+.publish_content{height: auto;}
+.publish_function{position: fixed;bottom: 0;}
+.publish_position text{font-size: 12px;color: #999999;}
+.publish_position icon{margin-right: 5px;}
+.clear{clear: both;}
+.questionClassify .titles{font-size:14px;margin:12px auto;width:90%}
+.classifyTheme{overflow:hidden}
+.imgline{width:134rpx;height:52rpx;line-height:52rpx;position:relative;border-radius:30rpx;float:left;margin:16rpx 25rpx;color:#0092d4;border:1px solid #0093d4;text-align:center;letter-spacing:10rpx;font-size:32rpx}
+.imgline-active{background:#0093d4;color:#fff;width:134rpx;height:52rpx;line-height:52rpx;position:relative;border-radius:30rpx;float:left;margin:16rpx 25rpx;border:1px solid #0093d4;text-align:center;letter-spacing:10rpx;font-size:16px}
+.publish_Btn{width:90%;margin:20px auto}
+.publish_button{color:#fff;font-size:18px;padding:14px 0;background:#0093d4!important;letter-spacing:10rpx;text-align:center;border-radius:30px}
+/*选择服务*/
+.publish_service{background-color:#fff;display:flex;font-size:30rpx;margin-top:50rpx;padding:10rpx 0rpx}
+.service_img{width:20%;text-align:center}
+.service_icon{width:20%;text-align:center;line-height:120rpx}
+.service_icon icon{font-size:50rpx;color:#eee}
+.service_img image{width:200rpx;height:200rpx}
+.service_content{width:60%;padding-left:25rpx}
+.service_text{padding:10rpx 0}
+.service_bookNum{padding:10rpx 0}
+.icon-guanbi{font-size:26rpx;width:40rpx;height:40rpx;text-align:center;margin-top:-20rpx}
+/*输入文章链接*/
+.linkUrl{background-color:#ffffff;padding: 15rpx 30rpx; font-size: 30rpx;margin-top: 35rpx;}

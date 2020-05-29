@@ -1,0 +1,83 @@
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<!--首页推荐内容-->
+<scroll-view style='margin-top:{{navH}}px'>
+  <view class='content' wx:for="{{zxInfo}}" wx:key="index">
+    <view class='section dt'>
+      <view class='dt_content_title'>{{item.information[0].TITLE?item.information[0].TITLE:item.information[0].CONTENT}}</view>
+      <view class='dt_content_details'>
+        <view class='answer_details' bindtap='showUserCurselComment' data-coveruserid='{{item.information[0].INFO_ID}}' data-commentId='{{item.information[0].WX_USER_ID}}'>查看全部{{zxInfo[0].information[0].COMMENT_NUMBER}}个答案</view>
+      </view>
+      <view class='answerContent'>
+        <view class='requestBoxes' bindtap='addRequest' data-type="show" data-commentId='{{item.information[0].ID}}' data-replyUserId='{{item.information[0].INFO_ID}}'>
+          <icon class='iconfont icon-bianji'></icon>
+          <text>添加回答</text>
+        </view>
+        <view class='requestBoxes'>
+          <button open-type="share">
+            <icon class='iconfont icon-fenxiang3'></icon>
+            <text> 邀请回答</text>
+          </button>
+        </view>
+      </view>
+    </view>
+    <!--回答内容  -->
+    <view class='content_function_r'>
+      <block wx:for="{{commentList}}" wx:key="index">
+        <template is="pinlunInfo" data="{{item:item,index:index,useCode:useCode,praiseList:praiseList}}"></template>
+      </block>
+      <view class='nodata' wx:if="{{commentList.length==0}}">当前暂无评论</view>
+    </view>
+    <!--热门评论的内容  -->
+    <view class='hotCommentBox' style='display:{{commentList.length==0 ? "none" : "block"}}'>
+      <view class='hotComments' bindtap="hhh">评论</view>
+      <view class='nodata' wx:if="{{hotCommentList.length == '0'}}">当前暂无评论</view>
+      <view class="itemBox">
+        <block wx:for="{{hotCommentList}}" wx:if='{{index<2}}' wx:key="index">
+          <template is="pinlunInfoComment" data="{{item:item,index:index,praiseList:praiseList}}"></template>
+        </block>
+      </view>
+      <view class='lookDetail' bindtap='showUserComment' wx:if="{{hotCommentList.length!==0}}" data-commentId='{{commentList[0].ID}}'>
+        <text>查看全部{{totalNumber}}条评论</text>
+        <icon class='iconfont icon-iconfontjiantou4'></icon>
+      </view>
+    </view>
+  </view>
+  <view class='loadMore {{loadMore==false?"hide":""}}'>加载中...</view>
+</scroll-view>
+<view class="flexBtn {{isShow==false ? '':'hide'}}" wx:for="{{commentList}}" wx:if="{{commentList.length!=0}}" wx:key="index">
+<!-- <view class="flexBtn {{isShow==false ? '':'hide'}}" wx:for="{{commentList}}" wx:if="{{commentList.length!=0}}" wx:key="index"> -->
+  <view class='myInfo_function_text inputBtn'>
+    <text catchtap='write'  data-type="show" data-commentId='{{item.ID}}' data-replyUserId='{{item.WX_USER_ID}}'>请输入评论...</text>
+  </view>
+  <view class='myInfo_function_text icon_btns' data-type="show" data-commentId='{{item.ID}}' data-replyUserId='{{item.WX_USER_ID}}'>
+    <icon class='iconfont icon-pinglun1'></icon>
+    <text>{{item.COMMENT_COUNT}}</text>
+  </view>
+  <view class='myInfo_function_text icon_btns' data-commentId='{{item.ID}}' bindtap='infoCommentPraise' data-dianzanid='{{index}}'>
+    <icon class='iconfont icon-dianzan1 {{praiseHeaderList[index].isPraise=="Y"?"praised":""}}' style="font-size:38rpx;"></icon>
+    <text>{{praiseHeaderList[index].praiseNumber}}</text>
+  </view>
+  <view class='myInfo_function_text icon_btns'>
+    <button bindtap='attentionComment' data-id='{{item.WX_USER_ID}}' data-commentId='{{item.ID}}' data-index="{{index}}">
+      <icon class='iconfont icon-taoxin {{item.IS_COLLECT=="Y"?"praised":""}}'></icon>
+      <text>{{item.COLLECT_COUNT}}</text>
+    </button>
+  </view>
+  <view class='myInfo_function_text icon_btns' bindtap='functionInfo' data-Id='{{item.WX_USER_ID}}' data-functionid='{{index}}' data-type='3'>
+    <button open-type="share" data-title='{{item.dtText[1]?item.dtText[1]:item.dtText[0]}}' data-Id='{{item.WX_USER_ID}}'>
+      <icon class='iconfont icon-zhuanfa'></icon>
+      <text>{{item.SHARE_COUNT}}</text>
+    </button>
+  </view>
+</view>
+<!--弹出评论-->
+<view class='junpComment {{isShow==false?"hide":""}}'>
+  <textarea placeholder='友善的评论是交流的起点!' cursor-spacing="40" focus="{{focus}}" fixed="true" auto-focus="{{focus}}" auto-height maxlength='-1' show-confirm-bar="{{disable}}" bindinput='getInputComment' value='{{inputText}}'></textarea>
+  <view>
+    <text></text>
+    <text bindtap='addInformationComment'>发布</text>
+  </view>
+</view>
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtouchmove='write' bindtap='write' data-type='hide'></view>

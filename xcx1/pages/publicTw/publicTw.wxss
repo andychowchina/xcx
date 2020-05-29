@@ -1,0 +1,16 @@
+/*提问头部的输入框*/
+@import "../../app.wxss";
+.inputQuestionTitle{margin-left:35rpx;margin-top:0;display:flex;position:fixed;z-index:2;width:90%;top:0;background-color:#f8f8f8;height:37px;border:1px solid #ccc;border-radius:40rpx}
+.select-query{width:9%;text-align:center;line-height:70rpx;color:#4bb3e0;font-size:30rpx;height:70rpx;margin-left:10rpx}
+.questionBox{width:80%;height:50rpx;line-height:50rpx;font-size:30rpx;margin-top:10rpx;text-indent:10rpx}
+.select-empty{width:6%;color:#ccc;line-height:46rpx;font-size:50rpx;border:1px dashed #777;text-align:center;height:42rpx;margin-top:14rpx;margin-right:27rpx;text-indent:-3.5rpx}
+.Headportrait{width:80rpx;height:80rpx;border-radius:50%}
+.inputQuestionTitle input{width:100%;height:100%}
+
+/*输入时根据关键字查询问题*/
+.questionList{margin: 60px 10px 10px 10px;}
+.questionList_box{margin-left:30rpx;font-size:32rpx;}
+.questionList_text{border-bottom: 1px solid #eeeeee; display: flex; padding: 10px 5px;}
+.questionList_title{font-weight: bold;font-size: 32rpx;}
+.red {color: red;}
+.questionList_info{font-size: 26rpx; color: #666666;margin-top: 5px;}

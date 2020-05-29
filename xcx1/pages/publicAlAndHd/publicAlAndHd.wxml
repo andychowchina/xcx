@@ -1,0 +1,67 @@
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <icon class='back iconfont icon-fanhui ' bindtap='navBack'></icon>
+  <view class='nav-title'>
+    爱服务
+  </view>
+</view>
+<scroll-view style='margin-top:{{navH}}px'>
+<form bindsubmit='addHdOrAl'  >
+  <view class='AlandHd_title' bindtap='jumpInputText' data-type='title' data-maxLength='50'>
+    <label>标题:</label>
+    <text >{{title?title:"点击输入标题"}}</text>
+  </view>
+  <view class='AlandHd_text'>
+    <view class='add'>
+      <icon class='iconfont icon-tianjia' bindtap='addFirst'></icon>
+    </view>
+    <block wx:for='{{textList}}'>
+      <view class='AlandHd_area'>
+        <view class='AlandHd_btn'>
+          <icon class='iconfont icon-guanbi' data-num='{{index}}' bindtap='removeItem'></icon>
+        </view>
+        <view class='AlandHd_input'>
+          <view class='AlandHd_inputImg'>
+            <view class='addImage' bindtap='addImage' wx:if='{{!item.imgUrl}}' data-num='{{index}}'>+</view>
+            <image mode="aspectFill" src='{{item.imgUrl}}' wx:else='{{item.imgUrl}}' bindtap='addImage' data-num='{{index}}'></image>
+          </view>
+          <view class='AlandHd_inputText' bindtap='jumpInputText' data-type='text' data-num='{{index}}' data-maxLength='400'>{{item.text?item.text:'点击输入内容'}}</view>
+        </view>
+      </view>
+    </block>
+    <view class='add'>
+      <icon class='iconfont icon-tianjia' bindtap='addLast'></icon>
+    </view>
+  </view>
+
+  <view class='publish_service' wx:if='{{serviceid}}' data-serviceid='{{serviceid}}' bindlongtap='goServiceInfo'>
+    <icon class='iconfont icon-guanbi' bindtap='deleteServiceInfo'></icon>
+    <view class='service_img'>
+      <image style="border-radius: 15rpx;width: 120rpx;height: 120rpx;" mode='aspectFit' src="{{serviceimg}}"></image>
+    </view>
+    <view class='service_content'>
+      <view class='service_text'>{{servicename}}</view>
+      <view class='service_bookNum'>已预约：{{servicenum}}</view>
+    </view>
+    <view class='service_icon'>
+      <icon class='iconfont icon-iconfontjiantou4'></icon>
+    </view>
+
+  </view>
+    </form>
+    </scroll-view>
+
+  <!--底部功能模块-->
+  <view class='publish_function'>
+    <view class='publish_function_leftBtn' bindtap='selectImage'>
+      <icon class='iconfont icon-tupian'></icon>
+    </view>
+    <view class='publish_function_leftBtn' bindtap='selectService'>
+      <icon class='iconfont icon-caidan'></icon>
+    </view>
+    <view class='publish_function_leftBtn'>
+      <!-- <icon  class='iconfont icon-lianjie'></icon> -->
+    </view>
+    <view class='publish_function_rightBtn'>
+      <view class='publish_button  {{!title&&(!textList[0].text||!textList[0].imgUrl)?"noPublish":""}}' bindtap='{{!title?"":"addHdOrAl"}}'>发布</view>
+    </view>
+  </view>

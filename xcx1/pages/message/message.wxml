@@ -1,0 +1,57 @@
+<!--头部输入问题标题-->
+<view class='nav bg-white' style='height:{{navH}}px'>
+  <view class='nav-title'>
+    爱服务
+  </view>
+</view>
+<view class="questionpage" style='margin-top:{{navH}}px'>
+<view class="gq"></view>
+  <view class='questionList'>
+    <view class='questionList_text' data-number='0' bindtap='bindToDetail'>
+      <view>
+        <view class='Headportrait'>
+          <icon class="iconfont icon-dianzan1"></icon>
+        </view>
+        <view class="message" wx:if="{{approvalList>0}}"></view>
+      </view>
+      <view class='questionList_box'>
+        赞同
+      </view>
+    </view>
+    <view class='questionList_text' data-number='1' bindtap='bindToDetail'>
+      <view>
+        <view class='Headportrait'>
+          <icon class="iconfont icon-pinglun"></icon>
+        </view>
+        <view class="message" wx:if="{{requestList>0}}"></view>
+      </view>
+      <view class='questionList_box'>
+        回答
+      </view>
+    </view>
+    <view class='questionList_text' data-number='2' bindtap='bindToDetail'>
+      <view>
+        <view class='Headportrait'>
+          <icon class="iconfont icon-pinglun1"></icon>
+        </view>
+        <view class="message" wx:if="{{commentList>0}}"></view>
+      </view>
+      <view class='questionList_box'>
+        评论
+      </view>
+    </view>
+    <view class='questionList_text'>
+      <!-- <button open-type="{{contactType}}" class="button_kefu" bindtap="openContact">
+        <icon class='iconfont icon-kefu-tianchong Headportrait'></icon>
+        <view class="questionList_box">爱服务</view>
+      </button> -->
+      <!-- -------------------------------- -->
+      <button class="button_kefu" open-type="contact" bindtap="onOpenContact" session-from="nickName={{userInfo.nickName}}|avatarUrl={{userInfo.avatarUrl}}|gender={{userInfo.gender}}|country={{userInfo.country}}|province={{userInfo.province}}|city={{userInfo.city}}" >
+          <icon class='iconfont icon-kefu-tianchong Headportrait'></icon>
+          <view class="questionList_box">爱服务</view>
+      </button>
+      <!-- ----------------------------------- -->
+    </view>
+  </view>
+</view>
+<buttomMenu id="buttomMenu" isSelect="2"></buttomMenu>

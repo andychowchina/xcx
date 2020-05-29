@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "buttomMenu": "../../compoents/buttomMenu/buttomMenu"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false
+}

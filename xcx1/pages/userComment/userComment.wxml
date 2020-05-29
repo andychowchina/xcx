@@ -1,0 +1,35 @@
+<import src="temp.wxml" />
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<!--首页推荐内容-->
+<scroll-view style='margin-top:{{navH}}px' >
+  <view class='content'>
+    <!--首页推荐内容-->
+    <view class='section dt'>
+      <block wx:for="{{userInfo}}" wx:key="index">
+        <template is="zxInfo" data="{{item}}"></template>
+      </block>
+      <!--评论内容start  -->
+      <view class='content_function_r'>
+        <view class='rmpl' bindtap='back'>{{commentList.length}}条回复</view>
+        <block wx:for="{{commentList}}" wx:for-index="index" wx:key="index">
+          <template is="pinlunInfo" data="{{item:item,index:index,praiseList:praiseList}}"></template>
+        </block>
+        <view class='nodata' wx:if="{{commentList.length==0}}">当前暂无评论</view>
+        <!--评论体end  -->
+      </view>
+      <!--评论内容end  -->
+    </view>
+  </view>
+  <view class='loadMore {{loadMore==false?"hide":""}}'>加载中...</view>
+</scroll-view>
+<!--弹出评论-->
+<view class='junpComment {{isShow==false?"hide":""}}'>
+  <textarea placeholder='请输入评论' focus="{{focus}}" auto-height maxlength='100' show-confirm-bar="{{disable}}" bindinput='getInputComment' value='{{inputText}}'></textarea>
+  <view bindtap='addInformationComment'>
+    <text></text>
+    <text>发送</text>
+  </view>
+</view>
+
+<view class='reveal-modal-bg {{isShow==false?"hide":""}}' bindtouchmove='write'  bindtap='write' data-type='hide'></view>

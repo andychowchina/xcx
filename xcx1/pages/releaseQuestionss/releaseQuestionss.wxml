@@ -1,0 +1,38 @@
+<import src="../topTitle/topTitle.wxml" />
+<template is="topTitle" data="{{navH:navH,titleText:titleText}}" />
+<form bindsubmit='addDynamic'>
+  <view class='publish_content' style='padding-top:{{navH}}px'>
+    <!-- <view class='publish_title'>
+      <textarea bindinput="bindTitleAreaBlur" value='{{contentTitle}}' placeholder="请输入问题标题" maxlength="-1" />
+    </view>
+    <view class='publish_input'>
+      <textarea bindinput="bindTextAreaBlur" value='{{content}}' placeholder="请输入需要发布的内容..." maxlength="-1" />
+    </view> -->
+     <view class='publish_title'>
+      <textarea bindinput="bindTitleAreaBlur" value='{{contentTitle}}' placeholder="简述问题的类型可以快速获得解答" maxlength="-1" />
+    </view>
+    <view class='publish_input'>
+      <textarea bindinput="bindTextAreaBlur" value='{{content}}' placeholder="详细您的问题，确保能回答者能做出准确的解答" maxlength="-1" />
+    </view>
+    <view class='publish_image'>
+      <view class='dt_content_img'>
+        <block wx:for="{{publishImages}}" wx:for-index="idx" wx:for-item="Image">
+          <view class='moreImg'>
+            <image src='{{Image}}' mode='aspectFill' bindtap='deleteLocalImageList' data-src='{{Image}}' data-list='{{publishImages}}' data-index="{{idx}}"></image>
+          </view>
+        </block>
+        <view class='publish_image_add' bindtap='selectImage' wx:if='{{publishImages.length<9}}' data-imagesLength='{{publishImages.length}}'>+</view>
+      </view>
+      <view class='clear'></view>
+    </view>
+    <view class='questionClassify'>
+      <view class='titles'>选择问题分类</view>
+      <view class='classifyTheme'>
+        <view class="imgline {{num== item.sx?'imgline-active':''}}" wx:for="{{themeList}}" data-id='{{item.pk}}' data-num='{{item.sx}}' bindtap='selected'>{{item.title}}</view>
+      </view>
+    </view>
+    <view class='publish_Btn'>
+      <view class='publish_button {{(!content&&publishImages.length<=0)?"noPublish":""}}' bindtap='publicData'>发布</view>
+    </view>
+  </view>
+</form>

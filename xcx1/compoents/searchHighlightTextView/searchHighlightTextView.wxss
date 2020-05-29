@@ -1,0 +1,26 @@
+/* component/searchHilightTextView.wxss */
+.topT{
+  font-size: 30rpx;
+  width: 355rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+text {
+  height: 40rpx;
+  font-family: PingFangSC;
+  font-size: 30rpx;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.highlight {
+  color: red;
+}
+.normal {
+  color: #484848;
+}
